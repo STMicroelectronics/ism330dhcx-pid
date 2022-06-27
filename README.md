@@ -5,7 +5,7 @@ Sensor driver for ISM330DHCX sensor written in C programming language. This repo
 In order to `clone` the complete content of the repository folder, use the command:
 
 ```
-git clone https://github.com/STMicroelectronics/ISM330DHCX/
+git clone https://github.com/STMicroelectronics/ISM330DHCX-PID/
 ```
 
 Some examples of driver usage can be found [here](https://github.com/STMicroelectronics/STMems_Standard_C_drivers).
