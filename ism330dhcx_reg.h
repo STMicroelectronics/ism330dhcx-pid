@@ -50,7 +50,7 @@ extern "C" {
 /** if _BYTE_ORDER is not defined, choose the endianness of your architecture
   * by uncommenting the define which fits your platform endianness
   */
-//#define DRV_BYTE_ORDER    DRV_BIG_ENDIAN
+/* #define DRV_BYTE_ORDER    DRV_BIG_ENDIAN */
 #define DRV_BYTE_ORDER    DRV_LITTLE_ENDIAN
 
 #else /* defined __BYTE_ORDER__ */
@@ -2862,7 +2862,7 @@ float_t ism330dhcx_from_lsb_to_nsec(int32_t lsb);
 typedef enum
 {
   ISM330DHCX_2g   = 0,
-  ISM330DHCX_16g  = 1, /* if XL_FS_MODE = ‘1’ -> ISM330DHCX_2g */
+  ISM330DHCX_16g  = 1, /* if XL_FS_MODE = '1' -> ISM330DHCX_2g */
   ISM330DHCX_4g   = 2,
   ISM330DHCX_8g   = 3,
 } ism330dhcx_fs_xl_t;
