@@ -2836,12 +2836,12 @@ typedef union
  * The __weak directive allows the final application to overwrite
  * them with a custom implementation.
  */
-int32_t __weak ism330dhcx_read_reg(stmdev_ctx_t *ctx, uint8_t reg,
-                                   uint8_t *data,
-                                   uint16_t len);
-int32_t __weak ism330dhcx_write_reg(stmdev_ctx_t *ctx, uint8_t reg,
-                                    uint8_t *data,
-                                    uint16_t len);
+int32_t ism330dhcx_read_reg(stmdev_ctx_t *ctx, uint8_t reg,
+                            uint8_t *data,
+                            uint16_t len);
+int32_t ism330dhcx_write_reg(stmdev_ctx_t *ctx, uint8_t reg,
+                             uint8_t *data,
+                             uint16_t len);
 
 float_t ism330dhcx_from_fs2g_to_mg(int16_t lsb);
 float_t ism330dhcx_from_fs4g_to_mg(int16_t lsb);
