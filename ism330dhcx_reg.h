@@ -3039,7 +3039,7 @@ int32_t ism330dhcx_mlc_out_get(stmdev_ctx_t *ctx, uint8_t *buff);
 int32_t ism330dhcx_device_conf_set(stmdev_ctx_t *ctx, uint8_t val);
 int32_t ism330dhcx_device_conf_get(stmdev_ctx_t *ctx, uint8_t *val);
 
-int32_t ism330dhcx_odr_cal_reg_get(stmdev_ctx_t *ctx, uint8_t *val);
+int32_t ism330dhcx_odr_cal_reg_get(stmdev_ctx_t *ctx, int8_t *val);
 
 int32_t ism330dhcx_number_of_steps_get(stmdev_ctx_t *ctx,
                                        uint16_t *val);

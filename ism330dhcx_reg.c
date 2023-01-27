@@ -1914,12 +1914,12 @@ int32_t ism330dhcx_device_conf_get(stmdev_ctx_t *ctx, uint8_t *val)
   * @retval        Interface status (MANDATORY: return 0 -> no Error).
   *
   */
-int32_t ism330dhcx_odr_cal_reg_get(stmdev_ctx_t *ctx, uint8_t *val)
+int32_t ism330dhcx_odr_cal_reg_get(stmdev_ctx_t *ctx, int8_t *val)
 {
   ism330dhcx_internal_freq_fine_t internal_freq_fine;
   int32_t ret;
   ret = ism330dhcx_read_reg(ctx, ISM330DHCX_INTERNAL_FREQ_FINE,
-                            (uint8_t *)&internal_freq_fine, 1);
+                            (int8_t *)&internal_freq_fine, 1);
   *val = internal_freq_fine.freq_fine;
 
   return ret;
