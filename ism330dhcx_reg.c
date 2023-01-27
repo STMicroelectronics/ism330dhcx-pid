@@ -1906,33 +1906,6 @@ int32_t ism330dhcx_device_conf_get(stmdev_ctx_t *ctx, uint8_t *val)
 
 /**
   * @brief  Difference in percentage of the effective ODR (and timestamp rate)
-  *         with respect to the typical.[set]
-  *         Step:  0.15%. 8-bit format, 2's complement.
-  *
-  * @param  ctx    Read / write interface definitions.(ptr)
-  * @param  val    Change the values of freq_fine in reg INTERNAL_FREQ_FINE
-  * @retval        Interface status (MANDATORY: return 0 -> no Error).
-  *
-  */
-int32_t ism330dhcx_odr_cal_reg_set(stmdev_ctx_t *ctx, uint8_t val)
-{
-  ism330dhcx_internal_freq_fine_t internal_freq_fine;
-  int32_t ret;
-  ret = ism330dhcx_read_reg(ctx, ISM330DHCX_INTERNAL_FREQ_FINE,
-                            (uint8_t *)&internal_freq_fine, 1);
-
-  if (ret == 0)
-  {
-    internal_freq_fine.freq_fine = (uint8_t)val;
-    ret = ism330dhcx_write_reg(ctx, ISM330DHCX_INTERNAL_FREQ_FINE,
-                               (uint8_t *)&internal_freq_fine, 1);
-  }
-
-  return ret;
-}
-
-/**
-  * @brief  Difference in percentage of the effective ODR (and timestamp rate)
   *         with respect to the typical.[get]
   *         Step:  0.15%. 8-bit format, 2's complement.
   *
