@@ -155,9 +155,9 @@ float_t ism330dhcx_from_lsb_to_celsius(int16_t lsb)
   return (((float_t)lsb / 256.0f) + 25.0f);
 }
 
-float_t ism330dhcx_from_lsb_to_nsec(int32_t lsb)
+uint64_t ism330dhcx_from_lsb_to_nsec(int32_t lsb)
 {
-  return ((float_t)lsb * 25000.0f);
+  return ((uint64_t)lsb * 25000.0f);
 }
 
 /**
