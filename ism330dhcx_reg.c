@@ -2514,8 +2514,6 @@ int32_t ism330dhcx_boot_get(const stmdev_ctx_t *ctx, uint8_t *val)
   return ret;
 }
 
-
-
 /**
   * @brief  Linear acceleration sensor self-test enable.[set]
   *
@@ -2969,8 +2967,7 @@ int32_t ism330dhcx_xl_hp_path_on_out_get(const stmdev_ctx_t *ctx,
   ret = ism330dhcx_read_reg(ctx, ISM330DHCX_CTRL8_XL,
                             (uint8_t *)&ctrl8_xl, 1);
 
-  switch (((ctrl8_xl.hp_ref_mode_xl << 5) + (ctrl8_xl.hp_slope_xl_en <<
-                                             4) +
+  switch (((ctrl8_xl.hp_ref_mode_xl << 5) + (ctrl8_xl.hp_slope_xl_en << 4) +
            ctrl8_xl.hpcf_xl))
   {
     case ISM330DHCX_HP_PATH_DISABLE_ON_OUT:
@@ -3662,26 +3659,27 @@ int32_t ism330dhcx_aux_den_mode_get(const stmdev_ctx_t *ctx,
     ret = ism330dhcx_read_reg(ctx, ISM330DHCX_CTRL1_OIS,
                               (uint8_t *)&ctrl1_ois, 1);
   }
-
-  switch ((ctrl1_ois.lvl1_ois << 1) + int_ois.lvl2_ois)
+  if (ret == 0)
   {
-    case ISM330DHCX_AUX_DEN_DISABLE:
-      *val = ISM330DHCX_AUX_DEN_DISABLE;
-      break;
+    switch ((ctrl1_ois.lvl1_ois << 1) + int_ois.lvl2_ois)
+    {
+      case ISM330DHCX_AUX_DEN_DISABLE:
+        *val = ISM330DHCX_AUX_DEN_DISABLE;
+        break;
 
-    case ISM330DHCX_AUX_DEN_LEVEL_LATCH:
-      *val = ISM330DHCX_AUX_DEN_LEVEL_LATCH;
-      break;
+      case ISM330DHCX_AUX_DEN_LEVEL_LATCH:
+        *val = ISM330DHCX_AUX_DEN_LEVEL_LATCH;
+        break;
 
-    case ISM330DHCX_AUX_DEN_LEVEL_TRIG:
-      *val = ISM330DHCX_AUX_DEN_LEVEL_TRIG;
-      break;
+      case ISM330DHCX_AUX_DEN_LEVEL_TRIG:
+        *val = ISM330DHCX_AUX_DEN_LEVEL_TRIG;
+        break;
 
-    default:
-      *val = ISM330DHCX_AUX_DEN_DISABLE;
-      break;
+      default:
+        *val = ISM330DHCX_AUX_DEN_DISABLE;
+        break;
+    }
   }
-
   return ret;
 }
 
@@ -5199,30 +5197,31 @@ int32_t ism330dhcx_int_notification_get(const stmdev_ctx_t *ctx,
   {
     ret = ism330dhcx_mem_bank_set(ctx, ISM330DHCX_USER_BANK);
   }
-
-  switch ((page_rw.emb_func_lir << 1) + tap_cfg0.lir)
+  if (ret == 0)
   {
-    case ISM330DHCX_ALL_INT_PULSED:
-      *val = ISM330DHCX_ALL_INT_PULSED;
-      break;
+    switch ((page_rw.emb_func_lir << 1) + tap_cfg0.lir)
+    {
+      case ISM330DHCX_ALL_INT_PULSED:
+        *val = ISM330DHCX_ALL_INT_PULSED;
+        break;
 
-    case ISM330DHCX_BASE_LATCHED_EMB_PULSED:
-      *val = ISM330DHCX_BASE_LATCHED_EMB_PULSED;
-      break;
+      case ISM330DHCX_BASE_LATCHED_EMB_PULSED:
+        *val = ISM330DHCX_BASE_LATCHED_EMB_PULSED;
+        break;
 
-    case ISM330DHCX_BASE_PULSED_EMB_LATCHED:
-      *val = ISM330DHCX_BASE_PULSED_EMB_LATCHED;
-      break;
+      case ISM330DHCX_BASE_PULSED_EMB_LATCHED:
+        *val = ISM330DHCX_BASE_PULSED_EMB_LATCHED;
+        break;
 
-    case ISM330DHCX_ALL_INT_LATCHED:
-      *val = ISM330DHCX_ALL_INT_LATCHED;
-      break;
+      case ISM330DHCX_ALL_INT_LATCHED:
+        *val = ISM330DHCX_ALL_INT_LATCHED;
+        break;
 
-    default:
-      *val = ISM330DHCX_ALL_INT_PULSED;
-      break;
+      default:
+        *val = ISM330DHCX_ALL_INT_PULSED;
+        break;
+    }
   }
-
   return ret;
 }
 
@@ -6534,9 +6533,10 @@ int32_t ism330dhcx_ff_dur_get(const stmdev_ctx_t *ctx, uint8_t *val)
     ret = ism330dhcx_read_reg(ctx, ISM330DHCX_FREE_FALL,
                               (uint8_t *)&free_fall, 1);
   }
-
-  *val = (wake_up_dur.ff_dur << 5) + free_fall.ff_dur;
-
+  if (ret == 0)
+  {
+    *val = (wake_up_dur.ff_dur << 5) + free_fall.ff_dur;
+  }
   return ret;
 }
 
@@ -6608,10 +6608,11 @@ int32_t ism330dhcx_fifo_watermark_get(const stmdev_ctx_t *ctx,
     ret = ism330dhcx_read_reg(ctx, ISM330DHCX_FIFO_CTRL1,
                               (uint8_t *)&fifo_ctrl1, 1);
   }
-
-  *val = fifo_ctrl2.wtm;
-  *val = (*val * 256U) +  fifo_ctrl1.wtm;;
-
+  if (ret == 0)
+  {
+    *val = fifo_ctrl2.wtm;
+    *val = (*val * 256U) + fifo_ctrl1.wtm;
+  }
   return ret;
 }
 
@@ -7518,10 +7519,11 @@ int32_t ism330dhcx_batch_counter_threshold_get(const stmdev_ctx_t *ctx,
     ret = ism330dhcx_read_reg(ctx, ISM330DHCX_COUNTER_BDR_REG2,
                               (uint8_t *)&counter_bdr_reg2, 1);
   }
-
-  *val = counter_bdr_reg1.cnt_bdr_th;
-  *val = (*val * 256U) +  counter_bdr_reg2.cnt_bdr_th;
-
+  if (ret == 0)
+  {
+    *val = counter_bdr_reg1.cnt_bdr_th;
+    *val = (*val * 256U) +  counter_bdr_reg2.cnt_bdr_th;
+  }
   return ret;
 }
 
@@ -9076,14 +9078,15 @@ int32_t ism330dhcx_mag_offset_get(const stmdev_ctx_t *ctx, int16_t *val)
     ret = ism330dhcx_ln_pg_read_byte(ctx, ISM330DHCX_MAG_OFFZ_H,
                                      &buff[i]);
   }
-
-  val[0] = (int16_t)buff[1];
-  val[0] = (val[0] * 256) + (int16_t)buff[0];
-  val[1] = (int16_t)buff[3];
-  val[1] = (val[1] * 256) + (int16_t)buff[2];
-  val[2] = (int16_t)buff[5];
-  val[2] = (val[2] * 256) + (int16_t)buff[4];
-
+  if (ret == 0)
+  {
+    val[0] = (int16_t)buff[1];
+    val[0] = (val[0] * 256) + (int16_t)buff[0];
+    val[1] = (int16_t)buff[3];
+    val[1] = (val[1] * 256) + (int16_t)buff[2];
+    val[2] = (int16_t)buff[5];
+    val[2] = (val[2] * 256) + (int16_t)buff[4];
+  }
   return ret;
 }
 
@@ -9299,20 +9302,21 @@ int32_t ism330dhcx_mag_soft_iron_get(const stmdev_ctx_t *ctx, uint16_t *val)
     ret = ism330dhcx_ln_pg_read_byte(ctx, ISM330DHCX_MAG_SI_ZZ_H,
                                      &buff[i]);
   }
-
-  val[0] = buff[1];
-  val[0] = (val[0] * 256U) +  buff[0];
-  val[1] = buff[3];
-  val[1] = (val[1] * 256U) +  buff[2];
-  val[2] = buff[5];
-  val[2] = (val[2] * 256U) +  buff[4];
-  val[3] = buff[7];
-  val[3] = (val[3] * 256U) +  buff[6];
-  val[4] = buff[9];
-  val[4] = (val[4] * 256U) +  buff[8];
-  val[5] = buff[11];
-  val[6] = (val[5] * 256U) +  buff[10];
-
+  if (ret == 0)
+  {
+    val[0] = buff[1];
+    val[0] = (val[0] * 256U) +  buff[0];
+    val[1] = buff[3];
+    val[1] = (val[1] * 256U) +  buff[2];
+    val[2] = buff[5];
+    val[2] = (val[2] * 256U) +  buff[4];
+    val[3] = buff[7];
+    val[3] = (val[3] * 256U) +  buff[6];
+    val[4] = buff[9];
+    val[4] = (val[4] * 256U) +  buff[8];
+    val[5] = buff[11];
+    val[6] = (val[5] * 256U) +  buff[10];
+  }
   return ret;
 }
 
