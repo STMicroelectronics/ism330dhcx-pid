@@ -6704,6 +6704,7 @@ int32_t ism330dhcx_fifo_watermark_set(const stmdev_ctx_t *ctx, uint16_t val)
   ism330dhcx_fifo_ctrl2_t fifo_ctrl2;
   int32_t ret;
 
+  ret = ism330dhcx_read_reg(ctx, ISM330DHCX_FIFO_CTRL1, (uint8_t *)&fifo_ctrl1, 1);
   ret += ism330dhcx_read_reg(ctx, ISM330DHCX_FIFO_CTRL2, (uint8_t *)&fifo_ctrl2, 1);
 
   if (ret == 0)
