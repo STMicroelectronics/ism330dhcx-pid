@@ -108,7 +108,7 @@ This directory contains the ISM330DHCX component drivers.
 
 </div>
 
-<input type="checkbox" id="collapse-section7" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section7" aria-hidden="true">
 <label for="collapse-section7" aria-hidden="true">V2.1.0 / 18-Dec-2024</label>
 <div>
 
@@ -118,6 +118,18 @@ This directory contains the ISM330DHCX component drivers.
 - Fix fifo_watermark_set() API
 - align driver among ism330dhcx/lsm6dsrx/lsm6dsr
 - Fix from_lsb_to_nsec() API
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section8" checked aria-hidden="true">
+<label for="collapse-section8" aria-hidden="true">V2.1.1 / 07-Apr-2025</label>
+<div>
+
+## Main changes
+
+- Fix MISRA C Errors
 
 ##
 
