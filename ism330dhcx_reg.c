@@ -1210,6 +1210,7 @@ int32_t ism330dhcx_gy_power_mode_get(const stmdev_ctx_t *ctx,
   * @param  ctx    Read / write interface definitions.(ptr)
   * @param  val    Get registers ALL_INT_SRC; WAKE_UP_SRC;
   *                              TAP_SRC; D6D_SRC; STATUS_REG;
+  *                              MLC_STATUS_MAINPAGE;
   *                              EMB_FUNC_STATUS; FSM_STATUS_A/B
   * @retval        Interface status (MANDATORY: return 0 -> no Error).
   *
@@ -1244,6 +1245,12 @@ int32_t ism330dhcx_all_sources_get(const stmdev_ctx_t *ctx,
   {
     ret = ism330dhcx_read_reg(ctx, ISM330DHCX_STATUS_REG,
                               (uint8_t *)&val->status_reg, 1);
+  }
+
+  if (ret == 0)
+  {
+    ret = ism330dhcx_read_reg(ctx, ISM330DHCX_MLC_STATUS_MAINPAGE,
+                              (uint8_t *)&val->mlc_status, 1);
   }
 
   if (ret == 0)
