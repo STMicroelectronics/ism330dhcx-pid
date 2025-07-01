@@ -123,7 +123,7 @@ This directory contains the ISM330DHCX component drivers.
 
 </div>
 
-<input type="checkbox" id="collapse-section8" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section8" aria-hidden="true">
 <label for="collapse-section8" aria-hidden="true">V2.1.1 / 07-Apr-2025</label>
 <div>
 
@@ -134,7 +134,22 @@ This directory contains the ISM330DHCX component drivers.
 ##
 
 </div>
+
+<input type="checkbox" id="collapse-section9" checked aria-hidden="true">
+<label for="collapse-section9" aria-hidden="true">V2.2.0 / 01-Jul-2025</label>
+<div>
+
+## Main changes
+
+- Align to lsm6dsr/lsm6dsrx drivers style
+- Fix driver formatting options
+- Added pointer to private data in stmdev_ctx_t
+
+##
+
+</div>
 :::
+
 
 :::
 :::
