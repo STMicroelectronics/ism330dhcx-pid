@@ -7866,18 +7866,6 @@ int32_t ism330dhcx_fifo_sensor_tag_get(const stmdev_ctx_t *ctx,
       *val = ISM330DHCX_STEP_CPUNTER_TAG;
       break;
 
-    case ISM330DHCX_GAME_ROTATION_TAG:
-      *val = ISM330DHCX_GAME_ROTATION_TAG;
-      break;
-
-    case ISM330DHCX_GEOMAG_ROTATION_TAG:
-      *val = ISM330DHCX_GEOMAG_ROTATION_TAG;
-      break;
-
-    case ISM330DHCX_ROTATION_TAG:
-      *val = ISM330DHCX_ROTATION_TAG;
-      break;
-
     case ISM330DHCX_SENSORHUB_NACK_TAG:
       *val = ISM330DHCX_SENSORHUB_NACK_TAG;
       break;
@@ -8565,7 +8553,7 @@ int32_t ism330dhcx_den_mark_axis_z_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl9_xl.den_x = (uint8_t)val;
+    ctrl9_xl.den_z = (uint8_t)val;
     ret = ism330dhcx_write_reg(ctx, ISM330DHCX_CTRL9_XL,
                                (uint8_t *)&ctrl9_xl, 1);
   }
@@ -8589,7 +8577,7 @@ int32_t ism330dhcx_den_mark_axis_z_get(const stmdev_ctx_t *ctx,
 
   ret = ism330dhcx_read_reg(ctx, ISM330DHCX_CTRL9_XL,
                             (uint8_t *)&ctrl9_xl, 1);
-  *val = ctrl9_xl.den_x;
+  *val = ctrl9_xl.den_z;
 
   return ret;
 }
