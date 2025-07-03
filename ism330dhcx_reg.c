@@ -10364,13 +10364,6 @@ int32_t ism330dhcx_fsm_number_of_programs_set(const stmdev_ctx_t *ctx,
 
   ret = ism330dhcx_ln_pg_write_byte(ctx, ISM330DHCX_FSM_PROGRAMS, buff);
 
-  if (ret == 0)
-  {
-    ret = ism330dhcx_ln_pg_write_byte(ctx,
-                                      ISM330DHCX_FSM_PROGRAMS + 0x01U,
-                                      buff);
-  }
-
   return ret;
 }
 
