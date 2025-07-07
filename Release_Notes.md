@@ -135,7 +135,7 @@ This directory contains the ISM330DHCX component drivers.
 
 </div>
 
-<input type="checkbox" id="collapse-section9" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section9" aria-hidden="true">
 <label for="collapse-section9" aria-hidden="true">V2.2.0 / 01-Jul-2025</label>
 <div>
 
@@ -148,7 +148,23 @@ This directory contains the ISM330DHCX component drivers.
 ##
 
 </div>
+
+<input type="checkbox" id="collapse-section10" checked aria-hidden="true">
+<label for="collapse-section10" aria-hidden="true">V2.3.0 / 07-Jul-2025</label>
+<div>
+
+## Main changes
+
+- change sh_read_data_raw_get() API
+- Fix fsm_number_of_programs_set API
+- changed API name into drdy_mask_set/get
+- Fix few typos
+
+##
+
+</div>
 :::
+
 
 
 :::
