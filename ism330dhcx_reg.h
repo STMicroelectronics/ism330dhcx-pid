@@ -3911,8 +3911,8 @@ int32_t ism330dhcx_sh_master_get(const stmdev_ctx_t *ctx, uint8_t *val);
 
 typedef enum
 {
-  ISM330DHCX_EXT_PULL_UP      = 0,
-  ISM330DHCX_INTERNAL_PULL_UP = 1,
+  ISM330DHCX_INTERNAL_PULL_UP_OFF = 0,
+  ISM330DHCX_INTERNAL_PULL_UP_ON  = 1,
 } ism330dhcx_shub_pu_en_t;
 int32_t ism330dhcx_sh_pin_mode_set(const stmdev_ctx_t *ctx,
                                    ism330dhcx_shub_pu_en_t val);

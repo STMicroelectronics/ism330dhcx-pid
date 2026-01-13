@@ -11356,16 +11356,16 @@ int32_t ism330dhcx_sh_pin_mode_get(const stmdev_ctx_t *ctx,
 
   switch (master_config.shub_pu_en)
   {
-    case ISM330DHCX_EXT_PULL_UP:
-      *val = ISM330DHCX_EXT_PULL_UP;
+    case 0:
+      *val = ISM330DHCX_INTERNAL_PULL_UP_OFF;
       break;
 
-    case ISM330DHCX_INTERNAL_PULL_UP:
-      *val = ISM330DHCX_INTERNAL_PULL_UP;
+    case 1:
+      *val = ISM330DHCX_INTERNAL_PULL_UP_ON;
       break;
 
     default:
-      *val = ISM330DHCX_EXT_PULL_UP;
+      *val = ISM330DHCX_INTERNAL_PULL_UP_OFF;
       break;
   }
 
