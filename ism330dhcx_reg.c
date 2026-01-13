@@ -3481,7 +3481,7 @@ int32_t ism330dhcx_aux_pw_on_ctrl_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl7_g.ois_on_en = (uint8_t)val & 0x01U;
+    ctrl7_g.ois_on_en = ((uint8_t)val & 0x02U) >> 1;
     ctrl7_g.ois_on = (uint8_t)val & 0x01U;
     ret = ism330dhcx_write_reg(ctx, ISM330DHCX_CTRL7_G,
                                (uint8_t *)&ctrl7_g, 1);
@@ -3511,18 +3511,22 @@ int32_t ism330dhcx_aux_pw_on_ctrl_get(const stmdev_ctx_t *ctx,
     return ret;
   }
 
-  switch (ctrl7_g.ois_on)
+  switch (ctrl7_g.ois_on | (ctrl7_g.ois_on_en << 1))
   {
-    case ISM330DHCX_AUX_ON:
-      *val = ISM330DHCX_AUX_ON;
+    case 0:
+      *val = ISM330DHCX_OIS_OFF;
       break;
 
-    case ISM330DHCX_AUX_ON_BY_AUX_INTERFACE:
-      *val = ISM330DHCX_AUX_ON_BY_AUX_INTERFACE;
+    case 3:
+      *val = ISM330DHCX_OIS_PRIMARY_INTERFACE_ON;
+      break;
+
+    case 1:
+      *val = ISM330DHCX_OIS_AUX_INTERFACE_ON;
       break;
 
     default:
-      *val = ISM330DHCX_AUX_ON;
+      *val = ISM330DHCX_OIS_OFF;
       break;
   }
 

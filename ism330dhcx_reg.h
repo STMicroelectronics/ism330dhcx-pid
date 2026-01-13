@@ -3042,8 +3042,9 @@ int32_t ism330dhcx_aux_sdo_ocs_mode_get(const stmdev_ctx_t *ctx,
 
 typedef enum
 {
-  ISM330DHCX_AUX_ON                    = 1,
-  ISM330DHCX_AUX_ON_BY_AUX_INTERFACE   = 0,
+  ISM330DHCX_OIS_OFF                   = 0,
+  ISM330DHCX_OIS_PRIMARY_INTERFACE_ON  = 3,
+  ISM330DHCX_OIS_AUX_INTERFACE_ON      = 1,
 } ism330dhcx_ois_on_t;
 int32_t ism330dhcx_aux_pw_on_ctrl_set(const stmdev_ctx_t *ctx,
                                       ism330dhcx_ois_on_t val);
