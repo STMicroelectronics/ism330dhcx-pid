@@ -3541,9 +3541,9 @@ int32_t ism330dhcx_fifo_mode_get(const stmdev_ctx_t *ctx,
 typedef enum
 {
   ISM330DHCX_TEMP_NOT_BATCHED        = 0,
-  ISM330DHCX_TEMP_BATCHED_AT_52Hz    = 1,
+  ISM330DHCX_TEMP_BATCHED_AT_1Hz6    = 1,
   ISM330DHCX_TEMP_BATCHED_AT_12Hz5   = 2,
-  ISM330DHCX_TEMP_BATCHED_AT_1Hz6    = 3,
+  ISM330DHCX_TEMP_BATCHED_AT_52Hz    = 3,
 } ism330dhcx_odr_t_batch_t;
 int32_t ism330dhcx_fifo_temp_batch_set(const stmdev_ctx_t *ctx,
                                        ism330dhcx_odr_t_batch_t val);
