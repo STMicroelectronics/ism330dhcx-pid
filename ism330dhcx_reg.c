@@ -4189,24 +4189,24 @@ int32_t ism330dhcx_aux_gy_lp1_bandwidth_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl2_ois.ftype_ois)
   {
-    case ISM330DHCX_351Hz39:
-      *val = ISM330DHCX_351Hz39;
+    case 0:
+      *val = ISM330DHCX_297Hz;
       break;
 
-    case ISM330DHCX_236Hz63:
-      *val = ISM330DHCX_236Hz63;
+    case 1:
+      *val = ISM330DHCX_222Hz;
       break;
 
-    case ISM330DHCX_172Hz70:
-      *val = ISM330DHCX_172Hz70;
+    case 2:
+      *val = ISM330DHCX_154Hz;
       break;
 
-    case ISM330DHCX_937Hz91:
-      *val = ISM330DHCX_937Hz91;
+    case 3:
+      *val = ISM330DHCX_470Hz;
       break;
 
     default:
-      *val = ISM330DHCX_351Hz39;
+      *val = ISM330DHCX_297Hz;
       break;
   }
 
@@ -4510,8 +4510,8 @@ int32_t ism330dhcx_aux_xl_bandwidth_get(const stmdev_ctx_t *ctx,
       *val = ISM330DHCX_8Hz3;
       break;
 
-    case ISM330DHCX_4Hz11:
-      *val = ISM330DHCX_4Hz11;
+    case ISM330DHCX_4Hz14:
+      *val = ISM330DHCX_4Hz14;
       break;
 
     default:

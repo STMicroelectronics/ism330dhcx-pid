@@ -3134,10 +3134,10 @@ int32_t ism330dhcx_aux_spi_mode_get(const stmdev_ctx_t *ctx,
 
 typedef enum
 {
-  ISM330DHCX_351Hz39 = 0,
-  ISM330DHCX_236Hz63 = 1,
-  ISM330DHCX_172Hz70 = 2,
-  ISM330DHCX_937Hz91 = 3,
+  ISM330DHCX_297Hz = 0,
+  ISM330DHCX_222Hz = 1,
+  ISM330DHCX_154Hz = 2,
+  ISM330DHCX_470Hz = 3,
 } ism330dhcx_ftype_ois_t;
 int32_t ism330dhcx_aux_gy_lp1_bandwidth_set(const stmdev_ctx_t *ctx,
                                             ism330dhcx_ftype_ois_t val);
@@ -3187,7 +3187,7 @@ typedef enum
   ISM330DHCX_33Hz6 = 4,
   ISM330DHCX_16Hz7 = 5,
   ISM330DHCX_8Hz3  = 6,
-  ISM330DHCX_4Hz11 = 7,
+  ISM330DHCX_4Hz14 = 7,
 } ism330dhcx_filter_xl_conf_ois_t;
 int32_t ism330dhcx_aux_xl_bandwidth_set(const stmdev_ctx_t *ctx,
                                         ism330dhcx_filter_xl_conf_ois_t val);
