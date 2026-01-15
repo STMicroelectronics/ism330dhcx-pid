@@ -164,7 +164,7 @@ This directory contains the ISM330DHCX component drivers.
 
 </div>
 
-<input type="checkbox" id="collapse-section11" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section11" aria-hidden="true">
 <label for="collapse-section11" aria-hidden="true">V2.4.0 / 07-Oct-2025</label>
 <div>
 
@@ -174,6 +174,22 @@ This directory contains the ISM330DHCX component drivers.
 - Added checks before writes and membank setting
 - Adding CODE_OF_CONDUCT.md and SECURITY.md
 - Fix all_sources_get API
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section12" checked aria-hidden="true">
+<label for="collapse-section12" aria-hidden="true">V3.0.0 / 15-Jan-2026</label>
+<div>
+
+## Main changes
+
+- Fix values for odr_t_batch_t enum
+- Fix typo in bdr_xl_t enum
+- Change shub_pu_en_t definition
+- Fix enums variants for ftype_ois and filter_xl_conf_ois
+- Fix ois_on_t enum, add missing OFF variant
 
 ##
 
