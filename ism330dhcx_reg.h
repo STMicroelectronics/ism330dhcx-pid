@@ -3031,8 +3031,8 @@ int32_t ism330dhcx_gy_hp_path_internal_get(const stmdev_ctx_t *ctx,
 
 typedef enum
 {
-  ISM330DHCX_AUX_PULL_UP_DISC       = 0,
-  ISM330DHCX_AUX_PULL_UP_CONNECT    = 1,
+  ISM330DHCX_AUX_PULL_UP_DISC       = 1,
+  ISM330DHCX_AUX_PULL_UP_CONNECT    = 0,
 } ism330dhcx_ois_pu_dis_t;
 int32_t ism330dhcx_aux_sdo_ocs_mode_set(const stmdev_ctx_t *ctx,
                                         ism330dhcx_ois_pu_dis_t val);
