@@ -7676,12 +7676,12 @@ int32_t ism330dhcx_fifo_temp_batch_get(const stmdev_ctx_t *ctx,
   *         GYRO BDR divided by decimation decoder.[set]
   *
   * @param  ctx    Read / write interface definitions.(ptr)
-  * @param  val    Change the values of odr_ts_batch in reg FIFO_CTRL4
+  * @param  val    Change the values of dec_ts_batch in reg FIFO_CTRL4
   * @retval        Interface status (MANDATORY: return 0 -> no Error).
   *
   */
 int32_t ism330dhcx_fifo_timestamp_decimation_set(const stmdev_ctx_t *ctx,
-                                                 ism330dhcx_odr_ts_batch_t val)
+                                                 ism330dhcx_dec_ts_batch_t val)
 {
   ism330dhcx_fifo_ctrl4_t fifo_ctrl4;
   int32_t ret;
@@ -7691,7 +7691,7 @@ int32_t ism330dhcx_fifo_timestamp_decimation_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    fifo_ctrl4.odr_ts_batch = (uint8_t)val;
+    fifo_ctrl4.dec_ts_batch = (uint8_t)val;
     ret = ism330dhcx_write_reg(ctx, ISM330DHCX_FIFO_CTRL4,
                                (uint8_t *)&fifo_ctrl4, 1);
   }
@@ -7705,13 +7705,13 @@ int32_t ism330dhcx_fifo_timestamp_decimation_set(const stmdev_ctx_t *ctx,
   *         GYRO BDR divided by decimation decoder.[get]
   *
   * @param  ctx    Read / write interface definitions.(ptr)
-  * @param  val    Get the values of odr_ts_batch in reg
+  * @param  val    Get the values of dec_ts_batch in reg
   *                                 FIFO_CTRL4
   * @retval        Interface status (MANDATORY: return 0 -> no Error).
   *
   */
 int32_t ism330dhcx_fifo_timestamp_decimation_get(const stmdev_ctx_t *ctx,
-                                                 ism330dhcx_odr_ts_batch_t *val)
+                                                 ism330dhcx_dec_ts_batch_t *val)
 {
   ism330dhcx_fifo_ctrl4_t fifo_ctrl4;
   int32_t ret;
@@ -7723,7 +7723,7 @@ int32_t ism330dhcx_fifo_timestamp_decimation_get(const stmdev_ctx_t *ctx,
     return ret;
   }
 
-  switch (fifo_ctrl4.odr_ts_batch)
+  switch (fifo_ctrl4.dec_ts_batch)
   {
     case ISM330DHCX_NO_DECIMATION:
       *val = ISM330DHCX_NO_DECIMATION;
