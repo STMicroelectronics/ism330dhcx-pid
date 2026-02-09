@@ -6190,28 +6190,36 @@ int32_t ism330dhcx_tap_axis_priority_get(const stmdev_ctx_t *ctx,
 
   switch (tap_cfg1.tap_priority)
   {
-    case ISM330DHCX_XYZ:
+    case 0x00U:
       *val = ISM330DHCX_XYZ;
       break;
 
-    case ISM330DHCX_YXZ:
+    case 0x01U:
       *val = ISM330DHCX_YXZ;
       break;
 
-    case ISM330DHCX_XZY:
+    case 0x02U:
       *val = ISM330DHCX_XZY;
       break;
 
-    case ISM330DHCX_ZYX:
+    case 0x03U:
       *val = ISM330DHCX_ZYX;
       break;
 
-    case ISM330DHCX_YZX:
+    case 0x04U:
+      *val = ISM330DHCX_XYZ;
+      break;
+
+    case 0x05U:
       *val = ISM330DHCX_YZX;
       break;
 
-    case ISM330DHCX_ZXY:
+    case 0x06U:
       *val = ISM330DHCX_ZXY;
+      break;
+
+    case 0x07U:
+      *val = ISM330DHCX_ZYX;
       break;
 
     default:
