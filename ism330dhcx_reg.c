@@ -8980,19 +8980,12 @@ int32_t ism330dhcx_pedo_sens_get(const stmdev_ctx_t *ctx, uint8_t *val)
 int32_t ism330dhcx_pedo_step_detect_get(const stmdev_ctx_t *ctx,
                                         uint8_t *val)
 {
-  ism330dhcx_emb_func_status_t emb_func_status;
+  ism330dhcx_emb_func_status_mainpage_t emb_func_status;
   int32_t ret;
 
-  ret = ism330dhcx_mem_bank_set(ctx, ISM330DHCX_EMBEDDED_FUNC_BANK);
-
-  if (ret == 0)
-  {
-    ret = ism330dhcx_read_reg(ctx, ISM330DHCX_EMB_FUNC_STATUS,
-                              (uint8_t *)&emb_func_status, 1);
-    *val = emb_func_status.is_step_det;
-  }
-
-  ret += ism330dhcx_mem_bank_set(ctx, ISM330DHCX_USER_BANK);
+  ret = ism330dhcx_read_reg(ctx, ISM330DHCX_EMB_FUNC_STATUS_MAINPAGE,
+                            (uint8_t *)&emb_func_status, 1);
+  *val = emb_func_status.is_step_det;
 
   return ret;
 }
