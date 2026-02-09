@@ -11652,20 +11652,20 @@ int32_t ism330dhcx_sh_data_rate_get(const stmdev_ctx_t *ctx,
 
   switch (slv0_config.shub_odr)
   {
-    case ISM330DHCX_SH_ODR_104Hz:
+    case 0x00U:
       *val = ISM330DHCX_SH_ODR_104Hz;
       break;
 
-    case ISM330DHCX_SH_ODR_52Hz:
+    case 0x01U:
       *val = ISM330DHCX_SH_ODR_52Hz;
       break;
 
-    case ISM330DHCX_SH_ODR_26Hz:
+    case 0x02U:
       *val = ISM330DHCX_SH_ODR_26Hz;
       break;
 
-    case ISM330DHCX_SH_ODR_13Hz:
-      *val = ISM330DHCX_SH_ODR_13Hz;
+    case 0x03U:
+      *val = ISM330DHCX_SH_ODR_12Hz5;
       break;
 
     default:

@@ -3951,7 +3951,7 @@ typedef enum
   ISM330DHCX_SH_ODR_104Hz = 0,
   ISM330DHCX_SH_ODR_52Hz  = 1,
   ISM330DHCX_SH_ODR_26Hz  = 2,
-  ISM330DHCX_SH_ODR_13Hz  = 3,
+  ISM330DHCX_SH_ODR_12Hz5 = 3,
 } ism330dhcx_shub_odr_t;
 int32_t ism330dhcx_sh_data_rate_set(const stmdev_ctx_t *ctx,
                                     ism330dhcx_shub_odr_t val);
