@@ -3670,8 +3670,8 @@ int32_t ism330dhcx_den_polarity_get(const stmdev_ctx_t *ctx,
 typedef enum
 {
   ISM330DHCX_STAMP_IN_GY_DATA     = 0,
-  ISM330DHCX_STAMP_IN_XL_DATA     = 1,
-  ISM330DHCX_STAMP_IN_GY_XL_DATA  = 2,
+  ISM330DHCX_STAMP_IN_XL_DATA     = 2,
+  ISM330DHCX_STAMP_IN_GY_XL_DATA  = 1,
 } ism330dhcx_den_xl_g_t;
 int32_t ism330dhcx_den_enable_set(const stmdev_ctx_t *ctx,
                                   ism330dhcx_den_xl_g_t val);
