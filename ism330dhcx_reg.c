@@ -2232,7 +2232,7 @@ int32_t ism330dhcx_ln_pg_read_byte(const stmdev_ctx_t *ctx, uint16_t add,
   }
 
   /* read value */
-  ret = ism330dhcx_read_reg(ctx, ISM330DHCX_PAGE_VALUE, val, 2);
+  ret = ism330dhcx_read_reg(ctx, ISM330DHCX_PAGE_VALUE, val, 1);
   if (ret != 0)
   {
     goto exit;
