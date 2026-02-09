@@ -8747,7 +8747,7 @@ int32_t ism330dhcx_den_mark_axis_x_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl9_xl.den_z = (uint8_t)val;
+    ctrl9_xl.den_x = (uint8_t)val;
     ret = ism330dhcx_write_reg(ctx, ISM330DHCX_CTRL9_XL,
                                (uint8_t *)&ctrl9_xl, 1);
   }
@@ -8776,7 +8776,7 @@ int32_t ism330dhcx_den_mark_axis_x_get(const stmdev_ctx_t *ctx,
     return ret;
   }
 
-  *val = ctrl9_xl.den_z;
+  *val = ctrl9_xl.den_x;
 
   return ret;
 }
