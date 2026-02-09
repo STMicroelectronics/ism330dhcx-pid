@@ -1326,7 +1326,7 @@ int32_t ism330dhcx_temp_flag_data_ready_get(const stmdev_ctx_t *ctx,
   *
   */
 int32_t ism330dhcx_xl_usr_offset_x_set(const stmdev_ctx_t *ctx,
-                                       uint8_t *buff)
+                                       int8_t *buff)
 {
   int32_t ret;
 
@@ -1346,7 +1346,7 @@ int32_t ism330dhcx_xl_usr_offset_x_set(const stmdev_ctx_t *ctx,
   *
   */
 int32_t ism330dhcx_xl_usr_offset_x_get(const stmdev_ctx_t *ctx,
-                                       uint8_t *buff)
+                                       int8_t *buff)
 {
   int32_t ret;
 
@@ -1366,7 +1366,7 @@ int32_t ism330dhcx_xl_usr_offset_x_get(const stmdev_ctx_t *ctx,
   *
   */
 int32_t ism330dhcx_xl_usr_offset_y_set(const stmdev_ctx_t *ctx,
-                                       uint8_t *buff)
+                                       int8_t *buff)
 {
   int32_t ret;
 
@@ -1386,7 +1386,7 @@ int32_t ism330dhcx_xl_usr_offset_y_set(const stmdev_ctx_t *ctx,
   *
   */
 int32_t ism330dhcx_xl_usr_offset_y_get(const stmdev_ctx_t *ctx,
-                                       uint8_t *buff)
+                                       int8_t *buff)
 {
   int32_t ret;
 
@@ -1406,7 +1406,7 @@ int32_t ism330dhcx_xl_usr_offset_y_get(const stmdev_ctx_t *ctx,
   *
   */
 int32_t ism330dhcx_xl_usr_offset_z_set(const stmdev_ctx_t *ctx,
-                                       uint8_t *buff)
+                                       int8_t *buff)
 {
   int32_t ret;
 
@@ -1426,7 +1426,7 @@ int32_t ism330dhcx_xl_usr_offset_z_set(const stmdev_ctx_t *ctx,
   *
   */
 int32_t ism330dhcx_xl_usr_offset_z_get(const stmdev_ctx_t *ctx,
-                                       uint8_t *buff)
+                                       int8_t *buff)
 {
   int32_t ret;
 
