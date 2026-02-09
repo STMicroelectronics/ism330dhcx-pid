@@ -7500,8 +7500,8 @@ int32_t ism330dhcx_fifo_gy_batch_get(const stmdev_ctx_t *ctx,
       *val = ISM330DHCX_GY_BATCHED_AT_6667Hz;
       break;
 
-    case ISM330DHCX_GY_BATCHED_6Hz5:
-      *val = ISM330DHCX_GY_BATCHED_6Hz5;
+    case ISM330DHCX_GY_BATCHED_AT_6Hz5:
+      *val = ISM330DHCX_GY_BATCHED_AT_6Hz5;
       break;
 
     default:

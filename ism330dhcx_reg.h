@@ -3516,7 +3516,7 @@ typedef enum
   ISM330DHCX_GY_BATCHED_AT_1667Hz   = 8,
   ISM330DHCX_GY_BATCHED_AT_3333Hz   = 9,
   ISM330DHCX_GY_BATCHED_AT_6667Hz   = 10,
-  ISM330DHCX_GY_BATCHED_6Hz5        = 11,
+  ISM330DHCX_GY_BATCHED_AT_6Hz5     = 11,
 } ism330dhcx_bdr_gy_t;
 int32_t ism330dhcx_fifo_gy_batch_set(const stmdev_ctx_t *ctx,
                                      ism330dhcx_bdr_gy_t val);
