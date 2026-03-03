@@ -30,15 +30,135 @@ This directory contains the ISM330DHCX component drivers.
 # Update history
 
 ::: {.collapse}
-<input type="checkbox" id="collapse-section1" aria-hidden="true">
-<label for="collapse-section1" aria-hidden="true">V1.0.0 / 18-June-2021</label>
+<input type="checkbox" id="collapse-section12" checked aria-hidden="true">
+<label for="collapse-section12" aria-hidden="true">V3.0.0 / 15-Jan-2026</label>
 <div>
 
 ## Main changes
 
-### First release
+- Fix values for odr_t_batch_t enum
+- Fix typo in bdr_xl_t enum
+- Change shub_pu_en_t definition
+- Fix enums variants for ftype_ois and filter_xl_conf_ois
+- Fix ois_on_t enum, add missing OFF variant
 
-- First official release [ref. DS v4.0]
+##
+
+</div>
+<input type="checkbox" id="collapse-section11" aria-hidden="true">
+<label for="collapse-section11" aria-hidden="true">V2.4.0 / 07-Oct-2025</label>
+<div>
+
+## Main changes
+
+- Aligned ln_pg_write/read implementations
+- Added checks before writes and membank setting
+- Adding CODE_OF_CONDUCT.md and SECURITY.md
+- Fix all_sources_get API
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section10" aria-hidden="true">
+<label for="collapse-section10" aria-hidden="true">V2.3.0 / 07-Jul-2025</label>
+<div>
+
+## Main changes
+
+- change sh_read_data_raw_get() API
+- Fix fsm_number_of_programs_set API
+- changed API name into drdy_mask_set/get
+- Fix few typos
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section9" aria-hidden="true">
+<label for="collapse-section9" aria-hidden="true">V2.2.0 / 01-Jul-2025</label>
+<div>
+
+## Main changes
+
+- Align to lsm6dsr/lsm6dsrx drivers style
+- Fix driver formatting options
+- Added pointer to private data in stmdev_ctx_t
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section8" aria-hidden="true">
+<label for="collapse-section8" aria-hidden="true">V2.1.1 / 07-Apr-2025</label>
+<div>
+
+## Main changes
+
+- Fix MISRA C Errors
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section7" aria-hidden="true">
+<label for="collapse-section7" aria-hidden="true">V2.1.0 / 18-Dec-2024</label>
+<div>
+
+## Main changes
+
+- Read always both FIFO_STATUS1 and FIFO_STATUS2 regs
+- Fix fifo_watermark_set() API
+- align driver among ism330dhcx/lsm6dsrx/lsm6dsr
+- Fix from_lsb_to_nsec() API
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section6" aria-hidden="true">
+<label for="collapse-section6" aria-hidden="true">V2.0.3 / 03-Oct-2024</label>
+<div>
+
+## Main changes
+
+- Fix from_lsb_to_nsec() API overflow
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section5" aria-hidden="true">
+<label for="collapse-section5" aria-hidden="true">V2.0.2 / 19-Jun-2024</label>
+<div>
+
+## Main changes
+
+- updated README.md file with tag reference and mdelay description
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section4" aria-hidden="true">
+<label for="collapse-section4" aria-hidden="true">V2.0.1 / 19-Mar-2024</label>
+<div>
+
+## Main changes
+
+- Fixed code style (Artistic Style Version 3.4.13)
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section3" aria-hidden="true">
+<label for="collapse-section3" aria-hidden="true">V2.0.0 / 18-Jan-2024</label>
+<div>
+
+## Main changes
+
+- Add "const" to ctx arg for all APIs
 
 ##
 
@@ -60,140 +180,20 @@ This directory contains the ISM330DHCX component drivers.
 
 </div>
 
-<input type="checkbox" id="collapse-section3" aria-hidden="true">
-<label for="collapse-section3" aria-hidden="true">V2.0.0 / 18-Jan-2024</label>
+<input type="checkbox" id="collapse-section1" aria-hidden="true">
+<label for="collapse-section1" aria-hidden="true">V1.0.0 / 18-June-2021</label>
 <div>
 
 ## Main changes
 
-- Add "const" to ctx arg for all APIs
+### First release
+
+- First official release [ref. DS v4.0]
 
 ##
 
 </div>
 
-<input type="checkbox" id="collapse-section4" aria-hidden="true">
-<label for="collapse-section4" aria-hidden="true">V2.0.1 / 19-Mar-2024</label>
-<div>
-
-## Main changes
-
-- Fixed code style (Artistic Style Version 3.4.13)
-
-##
-
-</div>
-
-<input type="checkbox" id="collapse-section5" aria-hidden="true">
-<label for="collapse-section5" aria-hidden="true">V2.0.2 / 19-Jun-2024</label>
-<div>
-
-## Main changes
-
-- updated README.md file with tag reference and mdelay description
-
-##
-
-</div>
-
-<input type="checkbox" id="collapse-section6" aria-hidden="true">
-<label for="collapse-section6" aria-hidden="true">V2.0.3 / 03-Oct-2024</label>
-<div>
-
-## Main changes
-
-- Fix from_lsb_to_nsec() API overflow
-
-##
-
-</div>
-
-<input type="checkbox" id="collapse-section7" aria-hidden="true">
-<label for="collapse-section7" aria-hidden="true">V2.1.0 / 18-Dec-2024</label>
-<div>
-
-## Main changes
-
-- Read always both FIFO_STATUS1 and FIFO_STATUS2 regs
-- Fix fifo_watermark_set() API
-- align driver among ism330dhcx/lsm6dsrx/lsm6dsr
-- Fix from_lsb_to_nsec() API
-
-##
-
-</div>
-
-<input type="checkbox" id="collapse-section8" aria-hidden="true">
-<label for="collapse-section8" aria-hidden="true">V2.1.1 / 07-Apr-2025</label>
-<div>
-
-## Main changes
-
-- Fix MISRA C Errors
-
-##
-
-</div>
-
-<input type="checkbox" id="collapse-section9" aria-hidden="true">
-<label for="collapse-section9" aria-hidden="true">V2.2.0 / 01-Jul-2025</label>
-<div>
-
-## Main changes
-
-- Align to lsm6dsr/lsm6dsrx drivers style
-- Fix driver formatting options
-- Added pointer to private data in stmdev_ctx_t
-
-##
-
-</div>
-
-<input type="checkbox" id="collapse-section10" aria-hidden="true">
-<label for="collapse-section10" aria-hidden="true">V2.3.0 / 07-Jul-2025</label>
-<div>
-
-## Main changes
-
-- change sh_read_data_raw_get() API
-- Fix fsm_number_of_programs_set API
-- changed API name into drdy_mask_set/get
-- Fix few typos
-
-##
-
-</div>
-
-<input type="checkbox" id="collapse-section11" aria-hidden="true">
-<label for="collapse-section11" aria-hidden="true">V2.4.0 / 07-Oct-2025</label>
-<div>
-
-## Main changes
-
-- Aligned ln_pg_write/read implementations
-- Added checks before writes and membank setting
-- Adding CODE_OF_CONDUCT.md and SECURITY.md
-- Fix all_sources_get API
-
-##
-
-</div>
-
-<input type="checkbox" id="collapse-section12" checked aria-hidden="true">
-<label for="collapse-section12" aria-hidden="true">V3.0.0 / 15-Jan-2026</label>
-<div>
-
-## Main changes
-
-- Fix values for odr_t_batch_t enum
-- Fix typo in bdr_xl_t enum
-- Change shub_pu_en_t definition
-- Fix enums variants for ftype_ois and filter_xl_conf_ois
-- Fix ois_on_t enum, add missing OFF variant
-
-##
-
-</div>
 :::
 
 
