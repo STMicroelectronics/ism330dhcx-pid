@@ -10407,13 +10407,17 @@ int32_t ism330dhcx_long_clr_get(const stmdev_ctx_t *ctx,
 /**
   * @brief  FSM output registers.[get]
   *
-  * @param  ctx    Read / write interface definitions.(ptr)
-  * @param  val    Structure of registers from FSM_OUTS1 to FSM_OUTS16
-  * @retval        Interface status (MANDATORY: return 0 -> no Error).
+  * @param  ctx        Read / write interface definitions.(ptr)
+  * @param uint8_t*    Buffer that stores the FSM output data read.
+  *                    The buffer must have at least 16 elements.
+  *                    The first element (buff[0]) corresponds to the content
+  *                    of FSM_OUTS1. The function reads 16 consecutive bytes
+  *                    starting from FSM_OUTS1.
+  * @retval            Interface status (MANDATORY: return 0 -> no Error).
   *
   */
 int32_t ism330dhcx_fsm_out_get(const stmdev_ctx_t *ctx,
-                               ism330dhcx_fsm_out_t *val)
+                               uint8_t *buff)
 {
   int32_t ret;
 
@@ -10421,8 +10425,7 @@ int32_t ism330dhcx_fsm_out_get(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ret = ism330dhcx_read_reg(ctx, ISM330DHCX_FSM_OUTS1,
-                              (uint8_t *)&val->fsm_outs1, 16);
+    ret = ism330dhcx_read_reg(ctx, ISM330DHCX_FSM_OUTS1, buff, 16);
   }
 
   ret += ism330dhcx_mem_bank_set(ctx, ISM330DHCX_USER_BANK);
