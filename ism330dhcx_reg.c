@@ -2962,21 +2962,42 @@ int32_t ism330dhcx_xl_lp2_on_6d_get(const stmdev_ctx_t *ctx, uint8_t *val)
 int32_t ism330dhcx_xl_hp_path_on_out_set(const stmdev_ctx_t *ctx,
                                          ism330dhcx_hp_slope_xl_en_t val)
 {
+  ism330dhcx_ctrl1_xl_t ctrl1_xl = {0};
   ism330dhcx_ctrl8_xl_t ctrl8_xl;
   int32_t ret;
+  uint8_t is_high_pass = (((uint8_t)val & 0x10) >> 4) == 1 ? 1 : 0;
 
   ret = ism330dhcx_read_reg(ctx, ISM330DHCX_CTRL8_XL,
                             (uint8_t *)&ctrl8_xl, 1);
 
-  if (ret == 0)
+  if (ret != 0)
   {
-    ctrl8_xl.hp_slope_xl_en = (((uint8_t)val & 0x10U) >> 4);
-    ctrl8_xl.hp_ref_mode_xl = (((uint8_t)val & 0x20U) >> 5);
-    ctrl8_xl.hpcf_xl = (uint8_t)val & 0x07U;
-    ret = ism330dhcx_write_reg(ctx, ISM330DHCX_CTRL8_XL,
-                               (uint8_t *)&ctrl8_xl, 1);
+    return ret;
   }
 
+  ctrl8_xl.hp_slope_xl_en = is_high_pass;
+  ctrl8_xl.hpcf_xl = (uint8_t)val & 0x07U;
+  ctrl8_xl.hp_ref_mode_xl = (((uint8_t)val & 0x20U) >> 5);
+
+  // low pass filter
+  if (is_high_pass == 0)
+  {
+    ret = ism330dhcx_read_reg(ctx, ISM330DHCX_CTRL1_XL,
+                              (uint8_t *)&ctrl1_xl, 1);
+
+    if (ret != 0)
+    {
+      return ret;
+    }
+
+    ctrl1_xl.lpf2_xl_en = ((uint8_t)val & 0x80U) >> 7;
+
+    ret = ism330dhcx_write_reg(ctx, ISM330DHCX_CTRL1_XL,
+                               (uint8_t *)&ctrl1_xl, 1);
+  }
+
+  ret += ism330dhcx_write_reg(ctx, ISM330DHCX_CTRL8_XL,
+                              (uint8_t *)&ctrl8_xl, 1);
   return ret;
 }
 
@@ -2992,115 +3013,84 @@ int32_t ism330dhcx_xl_hp_path_on_out_set(const stmdev_ctx_t *ctx,
 int32_t ism330dhcx_xl_hp_path_on_out_get(const stmdev_ctx_t *ctx,
                                          ism330dhcx_hp_slope_xl_en_t *val)
 {
+  ism330dhcx_ctrl1_xl_t ctrl1_xl;
   ism330dhcx_ctrl8_xl_t ctrl8_xl;
   int32_t ret;
+  uint8_t is_low_pass = 0;
 
-  ret = ism330dhcx_read_reg(ctx, ISM330DHCX_CTRL8_XL,
-                            (uint8_t *)&ctrl8_xl, 1);
+  ret = ism330dhcx_read_reg(ctx, ISM330DHCX_CTRL1_XL,
+                            (uint8_t *)&ctrl1_xl, 1);
   if (ret != 0)
   {
     return ret;
   }
 
-  switch (((ctrl8_xl.hp_ref_mode_xl << 5) +
-           (ctrl8_xl.hp_slope_xl_en << 4) +
-           ctrl8_xl.hpcf_xl))
+  ret += ism330dhcx_read_reg(ctx, ISM330DHCX_CTRL8_XL,
+                             (uint8_t *)&ctrl8_xl, 1);
+  if (ret != 0)
   {
-    case 0x00:
-      *val = ISM330DHCX_HP_PATH_DISABLE_ON_OUT;
-      break;
+    return ret;
+  }
 
-    case 0x10:
-      *val = ISM330DHCX_SLOPE_ODR_DIV_4;
-      break;
+  if (ctrl8_xl.hp_slope_xl_en == 0 && ctrl1_xl.lpf2_xl_en == 0)
+  {
+    *val = ISM330DHCX_LP_ODR_DIV_2;
+  }
+  else
+  {
+    is_low_pass = ctrl8_xl.hp_slope_xl_en == 0 ? 1 : 0;
 
-    case 0x11:
-      *val = ISM330DHCX_HP_ODR_DIV_10;
-      break;
+    switch (ctrl8_xl.hpcf_xl)
+    {
+      case 0x00:
+        *val = is_low_pass ? ISM330DHCX_LP_ODR_DIV_4 : ISM330DHCX_SLOPE_ODR_DIV_4;
+        break;
 
-    case 0x12:
-      *val = ISM330DHCX_HP_ODR_DIV_20;
-      break;
+      case 0x01:
+        *val = is_low_pass ? ISM330DHCX_LP_ODR_DIV_10 : ISM330DHCX_HP_ODR_DIV_10;
+        break;
 
-    case 0x13:
-      *val = ISM330DHCX_HP_ODR_DIV_45;
-      break;
+      case 0x02:
+        *val = is_low_pass ? ISM330DHCX_LP_ODR_DIV_20 : ISM330DHCX_HP_ODR_DIV_20;
+        break;
 
-    case 0x14:
-      *val = ISM330DHCX_HP_ODR_DIV_100;
-      break;
+      case 0x03:
+        *val = is_low_pass ? ISM330DHCX_LP_ODR_DIV_45 : ISM330DHCX_HP_ODR_DIV_45;
+        break;
 
-    case 0x15:
-      *val = ISM330DHCX_HP_ODR_DIV_200;
-      break;
+      case 0x04:
+        *val = is_low_pass ? ISM330DHCX_LP_ODR_DIV_100 : ISM330DHCX_HP_ODR_DIV_100;
+        break;
 
-    case 0x16:
-      *val = ISM330DHCX_HP_ODR_DIV_400;
-      break;
+      case 0x05:
+        *val = is_low_pass ? ISM330DHCX_LP_ODR_DIV_200 : ISM330DHCX_HP_ODR_DIV_200;
+        break;
 
-    case 0x17:
-      *val = ISM330DHCX_HP_ODR_DIV_800;
-      break;
+      case 0x06:
+        *val = is_low_pass ? ISM330DHCX_LP_ODR_DIV_400 : ISM330DHCX_HP_ODR_DIV_400;
+        break;
 
-    case 0x31:
-      *val = ISM330DHCX_HP_REF_MD_ODR_DIV_10;
-      break;
+      case 0x07:
+        if (is_low_pass)
+        {
+          *val = ISM330DHCX_LP_ODR_DIV_800;
+        }
+        else if (ctrl8_xl.hp_ref_mode_xl == 1)
+        {
+          // The application note requires the HPCF_XL field to be set to 111
+          // in order to enable HP_REF_MODE.
+          *val = ISM330DHCX_HP_REF_MODE;
+        }
+        else
+        {
+          *val = ISM330DHCX_HP_ODR_DIV_800;
+        }
+        break;
 
-    case 0x32:
-      *val = ISM330DHCX_HP_REF_MD_ODR_DIV_20;
-      break;
-
-    case 0x33:
-      *val = ISM330DHCX_HP_REF_MD_ODR_DIV_45;
-      break;
-
-    case 0x34:
-      *val = ISM330DHCX_HP_REF_MD_ODR_DIV_100;
-      break;
-
-    case 0x35:
-      *val = ISM330DHCX_HP_REF_MD_ODR_DIV_200;
-      break;
-
-    case 0x36:
-      *val = ISM330DHCX_HP_REF_MD_ODR_DIV_400;
-      break;
-
-    case 0x37:
-      *val = ISM330DHCX_HP_REF_MD_ODR_DIV_800;
-      break;
-
-    case 0x01:
-      *val = ISM330DHCX_LP_ODR_DIV_10;
-      break;
-
-    case 0x02:
-      *val = ISM330DHCX_LP_ODR_DIV_20;
-      break;
-
-    case 0x03:
-      *val = ISM330DHCX_LP_ODR_DIV_45;
-      break;
-
-    case 0x04:
-      *val = ISM330DHCX_LP_ODR_DIV_100;
-      break;
-
-    case 0x05:
-      *val = ISM330DHCX_LP_ODR_DIV_200;
-      break;
-
-    case 0x06:
-      *val = ISM330DHCX_LP_ODR_DIV_400;
-      break;
-
-    case 0x07:
-      *val = ISM330DHCX_LP_ODR_DIV_800;
-      break;
-
-    default:
-      *val = ISM330DHCX_HP_PATH_DISABLE_ON_OUT;
-      break;
+      default:
+        *val = is_low_pass ? ISM330DHCX_LP_ODR_DIV_4 : ISM330DHCX_SLOPE_ODR_DIV_4;
+        break;
+    }
   }
 
   return ret;

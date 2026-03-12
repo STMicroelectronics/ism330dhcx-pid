@@ -2980,7 +2980,7 @@ int32_t ism330dhcx_xl_lp2_on_6d_get(const stmdev_ctx_t *ctx, uint8_t *val);
 
 typedef enum
 {
-  ISM330DHCX_HP_PATH_DISABLE_ON_OUT    = 0x00,
+  ISM330DHCX_HP_REF_MODE               = 0x37,
   ISM330DHCX_SLOPE_ODR_DIV_4           = 0x10,
   ISM330DHCX_HP_ODR_DIV_10             = 0x11,
   ISM330DHCX_HP_ODR_DIV_20             = 0x12,
@@ -2989,20 +2989,15 @@ typedef enum
   ISM330DHCX_HP_ODR_DIV_200            = 0x15,
   ISM330DHCX_HP_ODR_DIV_400            = 0x16,
   ISM330DHCX_HP_ODR_DIV_800            = 0x17,
-  ISM330DHCX_HP_REF_MD_ODR_DIV_10      = 0x31,
-  ISM330DHCX_HP_REF_MD_ODR_DIV_20      = 0x32,
-  ISM330DHCX_HP_REF_MD_ODR_DIV_45      = 0x33,
-  ISM330DHCX_HP_REF_MD_ODR_DIV_100     = 0x34,
-  ISM330DHCX_HP_REF_MD_ODR_DIV_200     = 0x35,
-  ISM330DHCX_HP_REF_MD_ODR_DIV_400     = 0x36,
-  ISM330DHCX_HP_REF_MD_ODR_DIV_800     = 0x37,
-  ISM330DHCX_LP_ODR_DIV_10             = 0x01,
-  ISM330DHCX_LP_ODR_DIV_20             = 0x02,
-  ISM330DHCX_LP_ODR_DIV_45             = 0x03,
-  ISM330DHCX_LP_ODR_DIV_100            = 0x04,
-  ISM330DHCX_LP_ODR_DIV_200            = 0x05,
-  ISM330DHCX_LP_ODR_DIV_400            = 0x06,
-  ISM330DHCX_LP_ODR_DIV_800            = 0x07,
+  ISM330DHCX_LP_ODR_DIV_2              = 0x01,
+  ISM330DHCX_LP_ODR_DIV_4              = 0x00,
+  ISM330DHCX_LP_ODR_DIV_10             = 0x81,
+  ISM330DHCX_LP_ODR_DIV_20             = 0x82,
+  ISM330DHCX_LP_ODR_DIV_45             = 0x83,
+  ISM330DHCX_LP_ODR_DIV_100            = 0x84,
+  ISM330DHCX_LP_ODR_DIV_200            = 0x85,
+  ISM330DHCX_LP_ODR_DIV_400            = 0x86,
+  ISM330DHCX_LP_ODR_DIV_800            = 0x87,
 } ism330dhcx_hp_slope_xl_en_t;
 int32_t ism330dhcx_xl_hp_path_on_out_set(const stmdev_ctx_t *ctx,
                                          ism330dhcx_hp_slope_xl_en_t val);
