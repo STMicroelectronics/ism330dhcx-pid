@@ -11042,7 +11042,10 @@ int32_t ism330dhcx_mlc_mag_sensitivity_get(const stmdev_ctx_t *ctx,
   * @brief  Sensor hub output registers.[get]
   *
   * @param  ctx    Read / write interface definitions.(ptr)
-  * @param  val    Structure of registers from SENSOR_HUB_1 to SENSOR_HUB_18
+  * @param  val    Buffer that store the Sensor Hub output data
+  *                from 1 to 18 bytes (uint8_t *).
+  * @param  len    Number of bytes to read, valid range: 1 to 18.
+  *                If len > 18 the function returns -1.
   * @retval        Interface status (MANDATORY: return 0 -> no Error).
   *
   */
@@ -11051,12 +11054,16 @@ int32_t ism330dhcx_sh_read_data_raw_get(const stmdev_ctx_t *ctx, uint8_t *val,
 {
   int32_t ret;
 
+  if (len > 18)
+  {
+    return -1;
+  }
+
   ret = ism330dhcx_mem_bank_set(ctx, ISM330DHCX_SENSOR_HUB_BANK);
 
   if (ret == 0)
   {
-    ret = ism330dhcx_read_reg(ctx, ISM330DHCX_SENSOR_HUB_1,
-                              (uint8_t *)val, len);
+    ret = ism330dhcx_read_reg(ctx, ISM330DHCX_SENSOR_HUB_1, val, len);
   }
 
   ret += ism330dhcx_mem_bank_set(ctx, ISM330DHCX_USER_BANK);
