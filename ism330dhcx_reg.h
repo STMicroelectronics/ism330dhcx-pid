@@ -2210,7 +2210,7 @@ typedef enum
   ISM330DHCX_HP_ODR_DIV_400            = 0x16,
   ISM330DHCX_HP_ODR_DIV_800            = 0x17,
   ISM330DHCX_LP_ODR_DIV_2              = 0x01,
-  ISM330DHCX_LP_ODR_DIV_4              = 0x00,
+  ISM330DHCX_LP_ODR_DIV_4              = 0x80,
   ISM330DHCX_LP_ODR_DIV_10             = 0x81,
   ISM330DHCX_LP_ODR_DIV_20             = 0x82,
   ISM330DHCX_LP_ODR_DIV_45             = 0x83,
