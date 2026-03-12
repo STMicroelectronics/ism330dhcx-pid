@@ -220,19 +220,19 @@ int32_t ism330dhcx_xl_full_scale_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl1_xl.fs_xl)
   {
-    case ISM330DHCX_2g:
+    case 0x00:
       *val = ISM330DHCX_2g;
       break;
 
-    case ISM330DHCX_16g:
+    case 0x01:
       *val = ISM330DHCX_16g;
       break;
 
-    case ISM330DHCX_4g:
+    case 0x02:
       *val = ISM330DHCX_4g;
       break;
 
-    case ISM330DHCX_8g:
+    case 0x03:
       *val = ISM330DHCX_8g;
       break;
 
@@ -476,51 +476,51 @@ int32_t ism330dhcx_xl_data_rate_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl1_xl.odr_xl)
   {
-    case ISM330DHCX_XL_ODR_OFF:
+    case 0x00:
       *val = ISM330DHCX_XL_ODR_OFF;
       break;
 
-    case ISM330DHCX_XL_ODR_12Hz5:
+    case 0x01:
       *val = ISM330DHCX_XL_ODR_12Hz5;
       break;
 
-    case ISM330DHCX_XL_ODR_26Hz:
+    case 0x02:
       *val = ISM330DHCX_XL_ODR_26Hz;
       break;
 
-    case ISM330DHCX_XL_ODR_52Hz:
+    case 0x03:
       *val = ISM330DHCX_XL_ODR_52Hz;
       break;
 
-    case ISM330DHCX_XL_ODR_104Hz:
+    case 0x04:
       *val = ISM330DHCX_XL_ODR_104Hz;
       break;
 
-    case ISM330DHCX_XL_ODR_208Hz:
+    case 0x05:
       *val = ISM330DHCX_XL_ODR_208Hz;
       break;
 
-    case ISM330DHCX_XL_ODR_416Hz:
+    case 0x06:
       *val = ISM330DHCX_XL_ODR_416Hz;
       break;
 
-    case ISM330DHCX_XL_ODR_833Hz:
+    case 0x07:
       *val = ISM330DHCX_XL_ODR_833Hz;
       break;
 
-    case ISM330DHCX_XL_ODR_1666Hz:
+    case 0x08:
       *val = ISM330DHCX_XL_ODR_1666Hz;
       break;
 
-    case ISM330DHCX_XL_ODR_3332Hz:
+    case 0x09:
       *val = ISM330DHCX_XL_ODR_3332Hz;
       break;
 
-    case ISM330DHCX_XL_ODR_6667Hz:
+    case 0x10:
       *val = ISM330DHCX_XL_ODR_6667Hz;
       break;
 
-    case ISM330DHCX_XL_ODR_1Hz6:
+    case 0x11:
       *val = ISM330DHCX_XL_ODR_1Hz6;
       break;
 
@@ -580,32 +580,32 @@ int32_t ism330dhcx_gy_full_scale_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl2_g.fs_g)
   {
-    case ISM330DHCX_125dps:
+    case 0x02:
       *val = ISM330DHCX_125dps;
       break;
 
-    case ISM330DHCX_250dps:
+    case 0x00:
       *val = ISM330DHCX_250dps;
       break;
 
-    case ISM330DHCX_500dps:
+    case 0x04:
       *val = ISM330DHCX_500dps;
       break;
 
-    case ISM330DHCX_1000dps:
+    case 0x08:
       *val = ISM330DHCX_1000dps;
       break;
 
-    case ISM330DHCX_2000dps:
+    case 0x12:
       *val = ISM330DHCX_2000dps;
       break;
 
-    case ISM330DHCX_4000dps:
+    case 0x01:
       *val = ISM330DHCX_4000dps;
       break;
 
     default:
-      *val = ISM330DHCX_125dps;
+      *val = ISM330DHCX_250dps;
       break;
   }
 
@@ -843,47 +843,47 @@ int32_t ism330dhcx_gy_data_rate_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl2_g.odr_g)
   {
-    case ISM330DHCX_GY_ODR_OFF:
+    case 0x00:
       *val = ISM330DHCX_GY_ODR_OFF;
       break;
 
-    case ISM330DHCX_GY_ODR_12Hz5:
+    case 0x01:
       *val = ISM330DHCX_GY_ODR_12Hz5;
       break;
 
-    case ISM330DHCX_GY_ODR_26Hz:
+    case 0x02:
       *val = ISM330DHCX_GY_ODR_26Hz;
       break;
 
-    case ISM330DHCX_GY_ODR_52Hz:
+    case 0x03:
       *val = ISM330DHCX_GY_ODR_52Hz;
       break;
 
-    case ISM330DHCX_GY_ODR_104Hz:
+    case 0x04:
       *val = ISM330DHCX_GY_ODR_104Hz;
       break;
 
-    case ISM330DHCX_GY_ODR_208Hz:
+    case 0x05:
       *val = ISM330DHCX_GY_ODR_208Hz;
       break;
 
-    case ISM330DHCX_GY_ODR_416Hz:
+    case 0x06:
       *val = ISM330DHCX_GY_ODR_416Hz;
       break;
 
-    case ISM330DHCX_GY_ODR_833Hz:
+    case 0x07:
       *val = ISM330DHCX_GY_ODR_833Hz;
       break;
 
-    case ISM330DHCX_GY_ODR_1666Hz:
+    case 0x08:
       *val = ISM330DHCX_GY_ODR_1666Hz;
       break;
 
-    case ISM330DHCX_GY_ODR_3332Hz:
+    case 0x09:
       *val = ISM330DHCX_GY_ODR_3332Hz;
       break;
 
-    case ISM330DHCX_GY_ODR_6667Hz:
+    case 0x10:
       *val = ISM330DHCX_GY_ODR_6667Hz;
       break;
 
@@ -996,11 +996,11 @@ int32_t ism330dhcx_xl_offset_weight_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl6_c.usr_off_w)
   {
-    case ISM330DHCX_LSb_1mg:
+    case 0x00:
       *val = ISM330DHCX_LSb_1mg;
       break;
 
-    case ISM330DHCX_LSb_16mg:
+    case 0x01:
       *val = ISM330DHCX_LSb_16mg;
       break;
 
@@ -1060,11 +1060,11 @@ int32_t ism330dhcx_xl_power_mode_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl6_c.xl_hm_mode)
   {
-    case ISM330DHCX_HIGH_PERFORMANCE_MD:
+    case 0x00:
       *val = ISM330DHCX_HIGH_PERFORMANCE_MD;
       break;
 
-    case ISM330DHCX_LOW_NORMAL_POWER_MD:
+    case 0x01:
       *val = ISM330DHCX_LOW_NORMAL_POWER_MD;
       break;
 
@@ -1124,11 +1124,11 @@ int32_t ism330dhcx_gy_power_mode_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl7_g.g_hm_mode)
   {
-    case ISM330DHCX_GY_HIGH_PERFORMANCE:
+    case 0x00:
       *val = ISM330DHCX_GY_HIGH_PERFORMANCE;
       break;
 
-    case ISM330DHCX_GY_NORMAL:
+    case 0x01:
       *val = ISM330DHCX_GY_NORMAL;
       break;
 
@@ -1656,19 +1656,19 @@ int32_t ism330dhcx_rounding_mode_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl5_c.rounding)
   {
-    case ISM330DHCX_NO_ROUND:
+    case 0x00:
       *val = ISM330DHCX_NO_ROUND;
       break;
 
-    case ISM330DHCX_ROUND_XL:
+    case 0x01:
       *val = ISM330DHCX_ROUND_XL;
       break;
 
-    case ISM330DHCX_ROUND_GY:
+    case 0x02:
       *val = ISM330DHCX_ROUND_GY;
       break;
 
-    case ISM330DHCX_ROUND_GY_XL:
+    case 0x03:
       *val = ISM330DHCX_ROUND_GY_XL;
       break;
 
@@ -2015,15 +2015,15 @@ int32_t ism330dhcx_mem_bank_get(const stmdev_ctx_t *ctx,
 
   switch (func_cfg_access.reg_access)
   {
-    case ISM330DHCX_USER_BANK:
+    case 0x00:
       *val = ISM330DHCX_USER_BANK;
       break;
 
-    case ISM330DHCX_SENSOR_HUB_BANK:
+    case 0x01:
       *val = ISM330DHCX_SENSOR_HUB_BANK;
       break;
 
-    case ISM330DHCX_EMBEDDED_FUNC_BANK:
+    case 0x02:
       *val = ISM330DHCX_EMBEDDED_FUNC_BANK;
       break;
 
@@ -2309,11 +2309,11 @@ int32_t ism330dhcx_data_ready_mode_get(const stmdev_ctx_t *ctx,
 
   switch (counter_bdr_reg1.dataready_pulsed)
   {
-    case ISM330DHCX_DRDY_LATCHED:
+    case 0x00:
       *val = ISM330DHCX_DRDY_LATCHED;
       break;
 
-    case ISM330DHCX_DRDY_PULSED:
+    case 0x01:
       *val = ISM330DHCX_DRDY_PULSED;
       break;
 
@@ -2549,15 +2549,15 @@ int32_t ism330dhcx_xl_self_test_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl5_c.st_xl)
   {
-    case ISM330DHCX_XL_ST_DISABLE:
+    case 0x00:
       *val = ISM330DHCX_XL_ST_DISABLE;
       break;
 
-    case ISM330DHCX_XL_ST_POSITIVE:
+    case 0x01:
       *val = ISM330DHCX_XL_ST_POSITIVE;
       break;
 
-    case ISM330DHCX_XL_ST_NEGATIVE:
+    case 0x02:
       *val = ISM330DHCX_XL_ST_NEGATIVE;
       break;
 
@@ -2619,15 +2619,15 @@ int32_t ism330dhcx_gy_self_test_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl5_c.st_g)
   {
-    case ISM330DHCX_GY_ST_DISABLE:
+    case 0x00:
       *val = ISM330DHCX_GY_ST_DISABLE;
       break;
 
-    case ISM330DHCX_GY_ST_POSITIVE:
+    case 0x01:
       *val = ISM330DHCX_GY_ST_POSITIVE;
       break;
 
-    case ISM330DHCX_GY_ST_NEGATIVE:
+    case 0x03:
       *val = ISM330DHCX_GY_ST_NEGATIVE;
       break;
 
@@ -2859,35 +2859,35 @@ int32_t ism330dhcx_gy_lp1_bandwidth_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl6_c.ftype)
   {
-    case ISM330DHCX_ULTRA_LIGHT:
+    case 0x00:
       *val = ISM330DHCX_ULTRA_LIGHT;
       break;
 
-    case ISM330DHCX_VERY_LIGHT:
+    case 0x01:
       *val = ISM330DHCX_VERY_LIGHT;
       break;
 
-    case ISM330DHCX_LIGHT:
+    case 0x02:
       *val = ISM330DHCX_LIGHT;
       break;
 
-    case ISM330DHCX_MEDIUM:
+    case 0x03:
       *val = ISM330DHCX_MEDIUM;
       break;
 
-    case ISM330DHCX_STRONG:
+    case 0x04:
       *val = ISM330DHCX_STRONG;
       break;
 
-    case ISM330DHCX_VERY_STRONG:
+    case 0x05:
       *val = ISM330DHCX_VERY_STRONG;
       break;
 
-    case ISM330DHCX_AGGRESSIVE:
+    case 0x06:
       *val = ISM330DHCX_AGGRESSIVE;
       break;
 
-    case ISM330DHCX_XTREME:
+    case 0x07:
       *val = ISM330DHCX_XTREME;
       break;
 
@@ -3006,95 +3006,95 @@ int32_t ism330dhcx_xl_hp_path_on_out_get(const stmdev_ctx_t *ctx,
            (ctrl8_xl.hp_slope_xl_en << 4) +
            ctrl8_xl.hpcf_xl))
   {
-    case ISM330DHCX_HP_PATH_DISABLE_ON_OUT:
+    case 0x00:
       *val = ISM330DHCX_HP_PATH_DISABLE_ON_OUT;
       break;
 
-    case ISM330DHCX_SLOPE_ODR_DIV_4:
+    case 0x10:
       *val = ISM330DHCX_SLOPE_ODR_DIV_4;
       break;
 
-    case ISM330DHCX_HP_ODR_DIV_10:
+    case 0x11:
       *val = ISM330DHCX_HP_ODR_DIV_10;
       break;
 
-    case ISM330DHCX_HP_ODR_DIV_20:
+    case 0x12:
       *val = ISM330DHCX_HP_ODR_DIV_20;
       break;
 
-    case ISM330DHCX_HP_ODR_DIV_45:
+    case 0x13:
       *val = ISM330DHCX_HP_ODR_DIV_45;
       break;
 
-    case ISM330DHCX_HP_ODR_DIV_100:
+    case 0x14:
       *val = ISM330DHCX_HP_ODR_DIV_100;
       break;
 
-    case ISM330DHCX_HP_ODR_DIV_200:
+    case 0x15:
       *val = ISM330DHCX_HP_ODR_DIV_200;
       break;
 
-    case ISM330DHCX_HP_ODR_DIV_400:
+    case 0x16:
       *val = ISM330DHCX_HP_ODR_DIV_400;
       break;
 
-    case ISM330DHCX_HP_ODR_DIV_800:
+    case 0x17:
       *val = ISM330DHCX_HP_ODR_DIV_800;
       break;
 
-    case ISM330DHCX_HP_REF_MD_ODR_DIV_10:
+    case 0x31:
       *val = ISM330DHCX_HP_REF_MD_ODR_DIV_10;
       break;
 
-    case ISM330DHCX_HP_REF_MD_ODR_DIV_20:
+    case 0x32:
       *val = ISM330DHCX_HP_REF_MD_ODR_DIV_20;
       break;
 
-    case ISM330DHCX_HP_REF_MD_ODR_DIV_45:
+    case 0x33:
       *val = ISM330DHCX_HP_REF_MD_ODR_DIV_45;
       break;
 
-    case ISM330DHCX_HP_REF_MD_ODR_DIV_100:
+    case 0x34:
       *val = ISM330DHCX_HP_REF_MD_ODR_DIV_100;
       break;
 
-    case ISM330DHCX_HP_REF_MD_ODR_DIV_200:
+    case 0x35:
       *val = ISM330DHCX_HP_REF_MD_ODR_DIV_200;
       break;
 
-    case ISM330DHCX_HP_REF_MD_ODR_DIV_400:
+    case 0x36:
       *val = ISM330DHCX_HP_REF_MD_ODR_DIV_400;
       break;
 
-    case ISM330DHCX_HP_REF_MD_ODR_DIV_800:
+    case 0x37:
       *val = ISM330DHCX_HP_REF_MD_ODR_DIV_800;
       break;
 
-    case ISM330DHCX_LP_ODR_DIV_10:
+    case 0x01:
       *val = ISM330DHCX_LP_ODR_DIV_10;
       break;
 
-    case ISM330DHCX_LP_ODR_DIV_20:
+    case 0x02:
       *val = ISM330DHCX_LP_ODR_DIV_20;
       break;
 
-    case ISM330DHCX_LP_ODR_DIV_45:
+    case 0x03:
       *val = ISM330DHCX_LP_ODR_DIV_45;
       break;
 
-    case ISM330DHCX_LP_ODR_DIV_100:
+    case 0x04:
       *val = ISM330DHCX_LP_ODR_DIV_100;
       break;
 
-    case ISM330DHCX_LP_ODR_DIV_200:
+    case 0x05:
       *val = ISM330DHCX_LP_ODR_DIV_200;
       break;
 
-    case ISM330DHCX_LP_ODR_DIV_400:
+    case 0x06:
       *val = ISM330DHCX_LP_ODR_DIV_400;
       break;
 
-    case ISM330DHCX_LP_ODR_DIV_800:
+    case 0x07:
       *val = ISM330DHCX_LP_ODR_DIV_800;
       break;
 
@@ -3215,11 +3215,11 @@ int32_t ism330dhcx_xl_hp_path_internal_get(const stmdev_ctx_t *ctx,
 
   switch (tap_cfg0.slope_fds)
   {
-    case ISM330DHCX_USE_SLOPE:
+    case 0x00:
       *val = ISM330DHCX_USE_SLOPE;
       break;
 
-    case ISM330DHCX_USE_HPF:
+    case 0x01:
       *val = ISM330DHCX_USE_HPF;
       break;
 
@@ -3285,23 +3285,23 @@ int32_t ism330dhcx_gy_hp_path_internal_get(const stmdev_ctx_t *ctx,
 
   switch ((ctrl7_g.hp_en_g << 7) + ctrl7_g.hpm_g)
   {
-    case ISM330DHCX_HP_FILTER_NONE:
+    case 0x00:
       *val = ISM330DHCX_HP_FILTER_NONE;
       break;
 
-    case ISM330DHCX_HP_FILTER_16mHz:
+    case 0x80:
       *val = ISM330DHCX_HP_FILTER_16mHz;
       break;
 
-    case ISM330DHCX_HP_FILTER_65mHz:
+    case 0x81:
       *val = ISM330DHCX_HP_FILTER_65mHz;
       break;
 
-    case ISM330DHCX_HP_FILTER_260mHz:
+    case 0x82:
       *val = ISM330DHCX_HP_FILTER_260mHz;
       break;
 
-    case ISM330DHCX_HP_FILTER_1Hz04:
+    case 0x83:
       *val = ISM330DHCX_HP_FILTER_1Hz04;
       break;
 
@@ -3378,11 +3378,11 @@ int32_t ism330dhcx_aux_sdo_ocs_mode_get(const stmdev_ctx_t *ctx,
 
   switch (pin_ctrl.ois_pu_dis)
   {
-    case ISM330DHCX_AUX_PULL_UP_DISC:
+    case 0x01:
       *val = ISM330DHCX_AUX_PULL_UP_DISC;
       break;
 
-    case ISM330DHCX_AUX_PULL_UP_CONNECT:
+    case 0x00:
       *val = ISM330DHCX_AUX_PULL_UP_CONNECT;
       break;
 
@@ -3614,15 +3614,15 @@ int32_t ism330dhcx_aux_xl_self_test_get(const stmdev_ctx_t *ctx,
 
   switch (int_ois.st_xl_ois)
   {
-    case ISM330DHCX_AUX_XL_DISABLE:
+    case 0x00:
       *val = ISM330DHCX_AUX_XL_DISABLE;
       break;
 
-    case ISM330DHCX_AUX_XL_POS:
+    case 0x01:
       *val = ISM330DHCX_AUX_XL_POS;
       break;
 
-    case ISM330DHCX_AUX_XL_NEG:
+    case 0x02:
       *val = ISM330DHCX_AUX_XL_NEG;
       break;
 
@@ -3684,11 +3684,11 @@ int32_t ism330dhcx_aux_den_polarity_get(const stmdev_ctx_t *ctx,
 
   switch (int_ois.den_lh_ois)
   {
-    case ISM330DHCX_AUX_DEN_ACTIVE_LOW:
+    case 0x00:
       *val = ISM330DHCX_AUX_DEN_ACTIVE_LOW;
       break;
 
-    case ISM330DHCX_AUX_DEN_ACTIVE_HIGH:
+    case 0x01:
       *val = ISM330DHCX_AUX_DEN_ACTIVE_HIGH;
       break;
 
@@ -3769,15 +3769,15 @@ int32_t ism330dhcx_aux_den_mode_get(const stmdev_ctx_t *ctx,
 
   switch ((ctrl1_ois.lvl1_ois << 1) + int_ois.lvl2_ois)
   {
-    case ISM330DHCX_AUX_DEN_DISABLE:
+    case 0x00:
       *val = ISM330DHCX_AUX_DEN_DISABLE;
       break;
 
-    case ISM330DHCX_AUX_DEN_LEVEL_LATCH:
+    case 0x03:
       *val = ISM330DHCX_AUX_DEN_LEVEL_LATCH;
       break;
 
-    case ISM330DHCX_AUX_DEN_LEVEL_TRIG:
+    case 0x02:
       *val = ISM330DHCX_AUX_DEN_LEVEL_TRIG;
       break;
 
@@ -3906,15 +3906,15 @@ int32_t ism330dhcx_aux_mode_get(const stmdev_ctx_t *ctx,
 
   switch (((ctrl1_ois.mode4_en << 1) + ctrl1_ois.ois_en_spi2))
   {
-    case ISM330DHCX_AUX_DISABLE:
+    case 0x00:
       *val = ISM330DHCX_AUX_DISABLE;
       break;
 
-    case ISM330DHCX_MODE_3_GY:
+    case 0x01:
       *val = ISM330DHCX_MODE_3_GY;
       break;
 
-    case ISM330DHCX_MODE_4_GY_XL:
+    case 0x03:
       *val = ISM330DHCX_MODE_4_GY_XL;
       break;
 
@@ -3977,23 +3977,23 @@ int32_t ism330dhcx_aux_gy_full_scale_get(const stmdev_ctx_t *ctx,
 
   switch ((ctrl1_ois.fs_125_ois << 2) + ctrl1_ois.fs_g_ois)
   {
-    case ISM330DHCX_250dps_AUX:
+    case 0x00:
       *val = ISM330DHCX_250dps_AUX;
       break;
 
-    case ISM330DHCX_125dps_AUX:
+    case 0x04:
       *val = ISM330DHCX_125dps_AUX;
       break;
 
-    case ISM330DHCX_500dps_AUX:
+    case 0x01:
       *val = ISM330DHCX_500dps_AUX;
       break;
 
-    case ISM330DHCX_1000dps_AUX:
+    case 0x02:
       *val = ISM330DHCX_1000dps_AUX;
       break;
 
-    case ISM330DHCX_2000dps_AUX:
+    case 0x03:
       *val = ISM330DHCX_2000dps_AUX;
       break;
 
@@ -4055,11 +4055,11 @@ int32_t ism330dhcx_aux_spi_mode_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl1_ois.sim_ois)
   {
-    case ISM330DHCX_AUX_SPI_4_WIRE:
+    case 0x00:
       *val = ISM330DHCX_AUX_SPI_4_WIRE;
       break;
 
-    case ISM330DHCX_AUX_SPI_3_WIRE:
+    case 0x01:
       *val = ISM330DHCX_AUX_SPI_3_WIRE;
       break;
 
@@ -4196,23 +4196,23 @@ int32_t ism330dhcx_aux_gy_hp_bandwidth_get(const stmdev_ctx_t *ctx,
 
   switch ((ctrl2_ois.hp_en_ois << 4) + ctrl2_ois.hpm_ois)
   {
-    case ISM330DHCX_AUX_HP_DISABLE:
+    case 0x00:
       *val = ISM330DHCX_AUX_HP_DISABLE;
       break;
 
-    case ISM330DHCX_AUX_HP_Hz016:
+    case 0x10:
       *val = ISM330DHCX_AUX_HP_Hz016;
       break;
 
-    case ISM330DHCX_AUX_HP_Hz065:
+    case 0x11:
       *val = ISM330DHCX_AUX_HP_Hz065;
       break;
 
-    case ISM330DHCX_AUX_HP_Hz260:
+    case 0x12:
       *val = ISM330DHCX_AUX_HP_Hz260;
       break;
 
-    case ISM330DHCX_AUX_HP_1Hz040:
+    case 0x13:
       *val = ISM330DHCX_AUX_HP_1Hz040;
       break;
 
@@ -4278,11 +4278,11 @@ int32_t ism330dhcx_aux_gy_clamp_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl3_ois.st_ois_clampdis)
   {
-    case ISM330DHCX_ENABLE_CLAMP:
+    case 0x00:
       *val = ISM330DHCX_ENABLE_CLAMP;
       break;
 
-    case ISM330DHCX_DISABLE_CLAMP:
+    case 0x01:
       *val = ISM330DHCX_DISABLE_CLAMP;
       break;
 
@@ -4344,15 +4344,15 @@ int32_t ism330dhcx_aux_gy_self_test_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl3_ois.st_ois)
   {
-    case ISM330DHCX_AUX_GY_DISABLE:
+    case 0x00:
       *val = ISM330DHCX_AUX_GY_DISABLE;
       break;
 
-    case ISM330DHCX_AUX_GY_POS:
+    case 0x01:
       *val = ISM330DHCX_AUX_GY_POS;
       break;
 
-    case ISM330DHCX_AUX_GY_NEG:
+    case 0x03:
       *val = ISM330DHCX_AUX_GY_NEG;
       break;
 
@@ -4414,35 +4414,35 @@ int32_t ism330dhcx_aux_xl_bandwidth_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl3_ois.filter_xl_conf_ois)
   {
-    case ISM330DHCX_631Hz:
+    case 0x00:
       *val = ISM330DHCX_631Hz;
       break;
 
-    case ISM330DHCX_295Hz:
+    case 0x01:
       *val = ISM330DHCX_295Hz;
       break;
 
-    case ISM330DHCX_140Hz:
+    case 0x02:
       *val = ISM330DHCX_140Hz;
       break;
 
-    case ISM330DHCX_68Hz2:
+    case 0x03:
       *val = ISM330DHCX_68Hz2;
       break;
 
-    case ISM330DHCX_33Hz6:
+    case 0x04:
       *val = ISM330DHCX_33Hz6;
       break;
 
-    case ISM330DHCX_16Hz7:
+    case 0x05:
       *val = ISM330DHCX_16Hz7;
       break;
 
-    case ISM330DHCX_8Hz3:
+    case 0x06:
       *val = ISM330DHCX_8Hz3;
       break;
 
-    case ISM330DHCX_4Hz14:
+    case 0x07:
       *val = ISM330DHCX_4Hz14;
       break;
 
@@ -4504,19 +4504,19 @@ int32_t ism330dhcx_aux_xl_full_scale_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl3_ois.fs_xl_ois)
   {
-    case ISM330DHCX_AUX_2g:
+    case 0x00:
       *val = ISM330DHCX_AUX_2g;
       break;
 
-    case ISM330DHCX_AUX_16g:
+    case 0x01:
       *val = ISM330DHCX_AUX_16g;
       break;
 
-    case ISM330DHCX_AUX_4g:
+    case 0x02:
       *val = ISM330DHCX_AUX_4g;
       break;
 
-    case ISM330DHCX_AUX_8g:
+    case 0x03:
       *val = ISM330DHCX_AUX_8g;
       break;
 
@@ -4591,11 +4591,11 @@ int32_t ism330dhcx_sdo_sa0_mode_get(const stmdev_ctx_t *ctx,
 
   switch (pin_ctrl.sdo_pu_en)
   {
-    case ISM330DHCX_PULL_UP_DISC:
+    case 0x00:
       *val = ISM330DHCX_PULL_UP_DISC;
       break;
 
-    case ISM330DHCX_PULL_UP_CONNECT:
+    case 0x01:
       *val = ISM330DHCX_PULL_UP_CONNECT;
       break;
 
@@ -4657,11 +4657,11 @@ int32_t ism330dhcx_spi_mode_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl3_c.sim)
   {
-    case ISM330DHCX_SPI_4_WIRE:
+    case 0x00:
       *val = ISM330DHCX_SPI_4_WIRE;
       break;
 
-    case ISM330DHCX_SPI_3_WIRE:
+    case 0x01:
       *val = ISM330DHCX_SPI_3_WIRE;
       break;
 
@@ -4723,11 +4723,11 @@ int32_t ism330dhcx_i2c_interface_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl4_c.i2c_disable)
   {
-    case ISM330DHCX_I2C_ENABLE:
+    case 0x00:
       *val = ISM330DHCX_I2C_ENABLE;
       break;
 
-    case ISM330DHCX_I2C_DISABLE:
+    case 0x01:
       *val = ISM330DHCX_I2C_DISABLE;
       break;
 
@@ -5174,11 +5174,11 @@ int32_t ism330dhcx_pin_mode_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl3_c.pp_od)
   {
-    case ISM330DHCX_PUSH_PULL:
+    case 0x00:
       *val = ISM330DHCX_PUSH_PULL;
       break;
 
-    case ISM330DHCX_OPEN_DRAIN:
+    case 0x01:
       *val = ISM330DHCX_OPEN_DRAIN;
       break;
 
@@ -5240,11 +5240,11 @@ int32_t ism330dhcx_pin_polarity_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl3_c.h_lactive)
   {
-    case ISM330DHCX_ACTIVE_HIGH:
+    case 0x00:
       *val = ISM330DHCX_ACTIVE_HIGH;
       break;
 
-    case ISM330DHCX_ACTIVE_LOW:
+    case 0x01:
       *val = ISM330DHCX_ACTIVE_LOW;
       break;
 
@@ -5395,19 +5395,19 @@ int32_t ism330dhcx_int_notification_get(const stmdev_ctx_t *ctx,
 
   switch ((page_rw.emb_func_lir << 1) + tap_cfg0.lir)
   {
-    case ISM330DHCX_ALL_INT_PULSED:
+    case 0x00:
       *val = ISM330DHCX_ALL_INT_PULSED;
       break;
 
-    case ISM330DHCX_BASE_LATCHED_EMB_PULSED:
+    case 0x01:
       *val = ISM330DHCX_BASE_LATCHED_EMB_PULSED;
       break;
 
-    case ISM330DHCX_BASE_PULSED_EMB_LATCHED:
+    case 0x02:
       *val = ISM330DHCX_BASE_PULSED_EMB_LATCHED;
       break;
 
-    case ISM330DHCX_ALL_INT_LATCHED:
+    case 0x03:
       *val = ISM330DHCX_ALL_INT_LATCHED;
       break;
 
@@ -5486,11 +5486,11 @@ int32_t ism330dhcx_wkup_ths_weight_get(const stmdev_ctx_t *ctx,
 
   switch (wake_up_dur.wake_ths_w)
   {
-    case ISM330DHCX_LSb_FS_DIV_64:
+    case 0x00:
       *val = ISM330DHCX_LSb_FS_DIV_64;
       break;
 
-    case ISM330DHCX_LSb_FS_DIV_256:
+    case 0x01:
       *val = ISM330DHCX_LSb_FS_DIV_256;
       break;
 
@@ -5778,11 +5778,11 @@ int32_t ism330dhcx_act_pin_notification_get(const stmdev_ctx_t *ctx,
 
   switch (tap_cfg0. sleep_status_on_int)
   {
-    case ISM330DHCX_DRIVE_SLEEP_CHG_EVENT:
+    case 0x00:
       *val = ISM330DHCX_DRIVE_SLEEP_CHG_EVENT;
       break;
 
-    case ISM330DHCX_DRIVE_SLEEP_STATUS:
+    case 0x01:
       *val = ISM330DHCX_DRIVE_SLEEP_STATUS;
       break;
 
@@ -5846,19 +5846,19 @@ int32_t ism330dhcx_act_mode_get(const stmdev_ctx_t *ctx,
 
   switch (tap_cfg2.inact_en)
   {
-    case ISM330DHCX_XL_AND_GY_NOT_AFFECTED:
+    case 0x00:
       *val = ISM330DHCX_XL_AND_GY_NOT_AFFECTED;
       break;
 
-    case ISM330DHCX_XL_12Hz5_GY_NOT_AFFECTED:
+    case 0x01:
       *val = ISM330DHCX_XL_12Hz5_GY_NOT_AFFECTED;
       break;
 
-    case ISM330DHCX_XL_12Hz5_GY_SLEEP:
+    case 0x02:
       *val = ISM330DHCX_XL_12Hz5_GY_SLEEP;
       break;
 
-    case ISM330DHCX_XL_12Hz5_GY_PD:
+    case 0x03:
       *val = ISM330DHCX_XL_12Hz5_GY_PD;
       break;
 
@@ -6568,11 +6568,11 @@ int32_t ism330dhcx_tap_mode_get(const stmdev_ctx_t *ctx,
 
   switch (wake_up_ths.single_double_tap)
   {
-    case ISM330DHCX_ONLY_SINGLE:
+    case 0x00:
       *val = ISM330DHCX_ONLY_SINGLE;
       break;
 
-    case ISM330DHCX_BOTH_SINGLE_DOUBLE:
+    case 0x01:
       *val = ISM330DHCX_BOTH_SINGLE_DOUBLE;
       break;
 
@@ -6647,19 +6647,19 @@ int32_t ism330dhcx_6d_threshold_get(const stmdev_ctx_t *ctx,
 
   switch (tap_ths_6d.sixd_ths)
   {
-    case ISM330DHCX_DEG_80:
+    case 0x00:
       *val = ISM330DHCX_DEG_80;
       break;
 
-    case ISM330DHCX_DEG_70:
+    case 0x01:
       *val = ISM330DHCX_DEG_70;
       break;
 
-    case ISM330DHCX_DEG_60:
+    case 0x02:
       *val = ISM330DHCX_DEG_60;
       break;
 
-    case ISM330DHCX_DEG_50:
+    case 0x03:
       *val = ISM330DHCX_DEG_50;
       break;
 
@@ -6785,35 +6785,35 @@ int32_t ism330dhcx_ff_threshold_get(const stmdev_ctx_t *ctx,
 
   switch (free_fall.ff_ths)
   {
-    case ISM330DHCX_FF_TSH_156mg:
+    case 0x00:
       *val = ISM330DHCX_FF_TSH_156mg;
       break;
 
-    case ISM330DHCX_FF_TSH_219mg:
+    case 0x01:
       *val = ISM330DHCX_FF_TSH_219mg;
       break;
 
-    case ISM330DHCX_FF_TSH_250mg:
+    case 0x02:
       *val = ISM330DHCX_FF_TSH_250mg;
       break;
 
-    case ISM330DHCX_FF_TSH_312mg:
+    case 0x03:
       *val = ISM330DHCX_FF_TSH_312mg;
       break;
 
-    case ISM330DHCX_FF_TSH_344mg:
+    case 0x04:
       *val = ISM330DHCX_FF_TSH_344mg;
       break;
 
-    case ISM330DHCX_FF_TSH_406mg:
+    case 0x05:
       *val = ISM330DHCX_FF_TSH_406mg;
       break;
 
-    case ISM330DHCX_FF_TSH_469mg:
+    case 0x06:
       *val = ISM330DHCX_FF_TSH_469mg;
       break;
 
-    case ISM330DHCX_FF_TSH_500mg:
+    case 0x07:
       *val = ISM330DHCX_FF_TSH_500mg;
       break;
 
@@ -7112,23 +7112,23 @@ int32_t ism330dhcx_compression_algo_get(const stmdev_ctx_t *ctx,
   switch ((fifo_ctrl2.fifo_compr_rt_en << 2) +
           fifo_ctrl2.uncoptr_rate)
   {
-    case ISM330DHCX_CMP_DISABLE:
+    case 0x00:
       *val = ISM330DHCX_CMP_DISABLE;
       break;
 
-    case ISM330DHCX_CMP_ALWAYS:
+    case 0x04:
       *val = ISM330DHCX_CMP_ALWAYS;
       break;
 
-    case ISM330DHCX_CMP_8_TO_1:
+    case 0x05:
       *val = ISM330DHCX_CMP_8_TO_1;
       break;
 
-    case ISM330DHCX_CMP_16_TO_1:
+    case 0x06:
       *val = ISM330DHCX_CMP_16_TO_1;
       break;
 
-    case ISM330DHCX_CMP_32_TO_1:
+    case 0x07:
       *val = ISM330DHCX_CMP_32_TO_1;
       break;
 
@@ -7353,51 +7353,51 @@ int32_t ism330dhcx_fifo_xl_batch_get(const stmdev_ctx_t *ctx,
 
   switch (fifo_ctrl3.bdr_xl)
   {
-    case 0:
+    case 0x00:
       *val = ISM330DHCX_XL_NOT_BATCHED;
       break;
 
-    case 1:
+    case 0x01:
       *val = ISM330DHCX_XL_BATCHED_AT_12Hz5;
       break;
 
-    case 2:
+    case 0x02:
       *val = ISM330DHCX_XL_BATCHED_AT_26Hz;
       break;
 
-    case 3:
+    case 0x03:
       *val = ISM330DHCX_XL_BATCHED_AT_52Hz;
       break;
 
-    case 4:
+    case 0x04:
       *val = ISM330DHCX_XL_BATCHED_AT_104Hz;
       break;
 
-    case 5:
+    case 0x05:
       *val = ISM330DHCX_XL_BATCHED_AT_208Hz;
       break;
 
-    case 6:
+    case 0x06:
       *val = ISM330DHCX_XL_BATCHED_AT_417Hz;
       break;
 
-    case 7:
+    case 0x07:
       *val = ISM330DHCX_XL_BATCHED_AT_833Hz;
       break;
 
-    case 8:
+    case 0x08:
       *val = ISM330DHCX_XL_BATCHED_AT_1667Hz;
       break;
 
-    case 9:
+    case 0x09:
       *val = ISM330DHCX_XL_BATCHED_AT_3333Hz;
       break;
 
-    case 10:
+    case 0x0A:
       *val = ISM330DHCX_XL_BATCHED_AT_6667Hz;
       break;
 
-    case 11:
+    case 0x0B:
       *val = ISM330DHCX_XL_BATCHED_AT_1Hz6;
       break;
 
@@ -7461,51 +7461,51 @@ int32_t ism330dhcx_fifo_gy_batch_get(const stmdev_ctx_t *ctx,
 
   switch (fifo_ctrl3.bdr_gy)
   {
-    case ISM330DHCX_GY_NOT_BATCHED:
+    case 0x00:
       *val = ISM330DHCX_GY_NOT_BATCHED;
       break;
 
-    case ISM330DHCX_GY_BATCHED_AT_12Hz5:
+    case 0x01:
       *val = ISM330DHCX_GY_BATCHED_AT_12Hz5;
       break;
 
-    case ISM330DHCX_GY_BATCHED_AT_26Hz:
+    case 0x02:
       *val = ISM330DHCX_GY_BATCHED_AT_26Hz;
       break;
 
-    case ISM330DHCX_GY_BATCHED_AT_52Hz:
+    case 0x03:
       *val = ISM330DHCX_GY_BATCHED_AT_52Hz;
       break;
 
-    case ISM330DHCX_GY_BATCHED_AT_104Hz:
+    case 0x04:
       *val = ISM330DHCX_GY_BATCHED_AT_104Hz;
       break;
 
-    case ISM330DHCX_GY_BATCHED_AT_208Hz:
+    case 0x05:
       *val = ISM330DHCX_GY_BATCHED_AT_208Hz;
       break;
 
-    case ISM330DHCX_GY_BATCHED_AT_417Hz:
+    case 0x06:
       *val = ISM330DHCX_GY_BATCHED_AT_417Hz;
       break;
 
-    case ISM330DHCX_GY_BATCHED_AT_833Hz:
+    case 0x07:
       *val = ISM330DHCX_GY_BATCHED_AT_833Hz;
       break;
 
-    case ISM330DHCX_GY_BATCHED_AT_1667Hz:
+    case 0x08:
       *val = ISM330DHCX_GY_BATCHED_AT_1667Hz;
       break;
 
-    case ISM330DHCX_GY_BATCHED_AT_3333Hz:
+    case 0x09:
       *val = ISM330DHCX_GY_BATCHED_AT_3333Hz;
       break;
 
-    case ISM330DHCX_GY_BATCHED_AT_6667Hz:
+    case 0x0A:
       *val = ISM330DHCX_GY_BATCHED_AT_6667Hz;
       break;
 
-    case ISM330DHCX_GY_BATCHED_AT_6Hz5:
+    case 0x0B:
       *val = ISM330DHCX_GY_BATCHED_AT_6Hz5;
       break;
 
@@ -7567,27 +7567,27 @@ int32_t ism330dhcx_fifo_mode_get(const stmdev_ctx_t *ctx,
 
   switch (fifo_ctrl4.fifo_mode)
   {
-    case ISM330DHCX_BYPASS_MODE:
+    case 0x00:
       *val = ISM330DHCX_BYPASS_MODE;
       break;
 
-    case ISM330DHCX_FIFO_MODE:
+    case 0x01:
       *val = ISM330DHCX_FIFO_MODE;
       break;
 
-    case ISM330DHCX_STREAM_TO_FIFO_MODE:
+    case 0x03:
       *val = ISM330DHCX_STREAM_TO_FIFO_MODE;
       break;
 
-    case ISM330DHCX_BYPASS_TO_STREAM_MODE:
+    case 0x04:
       *val = ISM330DHCX_BYPASS_TO_STREAM_MODE;
       break;
 
-    case ISM330DHCX_STREAM_MODE:
+    case 0x06:
       *val = ISM330DHCX_STREAM_MODE;
       break;
 
-    case ISM330DHCX_BYPASS_TO_FIFO_MODE:
+    case 0x07:
       *val = ISM330DHCX_BYPASS_TO_FIFO_MODE;
       break;
 
@@ -7651,19 +7651,19 @@ int32_t ism330dhcx_fifo_temp_batch_get(const stmdev_ctx_t *ctx,
 
   switch (fifo_ctrl4.odr_t_batch)
   {
-    case ISM330DHCX_TEMP_NOT_BATCHED:
+    case 0x00:
       *val = ISM330DHCX_TEMP_NOT_BATCHED;
       break;
 
-    case ISM330DHCX_TEMP_BATCHED_AT_52Hz:
+    case 0x03:
       *val = ISM330DHCX_TEMP_BATCHED_AT_52Hz;
       break;
 
-    case ISM330DHCX_TEMP_BATCHED_AT_12Hz5:
+    case 0x02:
       *val = ISM330DHCX_TEMP_BATCHED_AT_12Hz5;
       break;
 
-    case ISM330DHCX_TEMP_BATCHED_AT_1Hz6:
+    case 0x01:
       *val = ISM330DHCX_TEMP_BATCHED_AT_1Hz6;
       break;
 
@@ -7730,19 +7730,19 @@ int32_t ism330dhcx_fifo_timestamp_decimation_get(const stmdev_ctx_t *ctx,
 
   switch (fifo_ctrl4.dec_ts_batch)
   {
-    case ISM330DHCX_NO_DECIMATION:
+    case 0x00:
       *val = ISM330DHCX_NO_DECIMATION;
       break;
 
-    case ISM330DHCX_DEC_1:
+    case 0x01:
       *val = ISM330DHCX_DEC_1;
       break;
 
-    case ISM330DHCX_DEC_8:
+    case 0x02:
       *val = ISM330DHCX_DEC_8;
       break;
 
-    case ISM330DHCX_DEC_32:
+    case 0x03:
       *val = ISM330DHCX_DEC_32;
       break;
 
@@ -7808,11 +7808,11 @@ int32_t ism330dhcx_fifo_cnt_event_batch_get(const stmdev_ctx_t *ctx,
 
   switch (counter_bdr_reg1.trig_counter_bdr)
   {
-    case ISM330DHCX_XL_BATCH_EVENT:
+    case 0x00:
       *val = ISM330DHCX_XL_BATCH_EVENT;
       break;
 
-    case ISM330DHCX_GYRO_BATCH_EVENT:
+    case 0x01:
       *val = ISM330DHCX_GYRO_BATCH_EVENT;
       break;
 
@@ -8581,23 +8581,23 @@ int32_t ism330dhcx_den_mode_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl6_c.den_mode)
   {
-    case ISM330DHCX_DEN_DISABLE:
+    case 0x00:
       *val = ISM330DHCX_DEN_DISABLE;
       break;
 
-    case ISM330DHCX_LEVEL_FIFO:
+    case 0x06:
       *val = ISM330DHCX_LEVEL_FIFO;
       break;
 
-    case ISM330DHCX_LEVEL_LETCHED:
+    case 0x03:
       *val = ISM330DHCX_LEVEL_LETCHED;
       break;
 
-    case ISM330DHCX_LEVEL_TRIGGER:
+    case 0x02:
       *val = ISM330DHCX_LEVEL_TRIGGER;
       break;
 
-    case ISM330DHCX_EDGE_TRIGGER:
+    case 0x04:
       *val = ISM330DHCX_EDGE_TRIGGER;
       break;
 
@@ -8659,11 +8659,11 @@ int32_t ism330dhcx_den_polarity_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl9_xl.den_lh)
   {
-    case ISM330DHCX_DEN_ACT_LOW:
+    case 0x00:
       *val = ISM330DHCX_DEN_ACT_LOW;
       break;
 
-    case ISM330DHCX_DEN_ACT_HIGH:
+    case 0x01:
       *val = ISM330DHCX_DEN_ACT_HIGH;
       break;
 
@@ -8725,15 +8725,15 @@ int32_t ism330dhcx_den_enable_get(const stmdev_ctx_t *ctx,
 
   switch (ctrl9_xl.den_xl_g)
   {
-    case ISM330DHCX_STAMP_IN_GY_DATA:
+    case 0x00:
       *val = ISM330DHCX_STAMP_IN_GY_DATA;
       break;
 
-    case ISM330DHCX_STAMP_IN_XL_DATA:
+    case 0x02:
       *val = ISM330DHCX_STAMP_IN_XL_DATA;
       break;
 
-    case ISM330DHCX_STAMP_IN_GY_XL_DATA:
+    case 0x01:
       *val = ISM330DHCX_STAMP_IN_GY_XL_DATA;
       break;
 
@@ -9147,11 +9147,11 @@ int32_t ism330dhcx_pedo_int_mode_get(const stmdev_ctx_t *ctx,
 
   switch (pedo_cmd_reg.carry_count_en)
   {
-    case ISM330DHCX_EVERY_STEP:
+    case 0x00:
       *val = ISM330DHCX_EVERY_STEP;
       break;
 
-    case ISM330DHCX_COUNT_OVERFLOW:
+    case 0x01:
       *val = ISM330DHCX_COUNT_OVERFLOW;
       break;
 
@@ -9854,27 +9854,27 @@ int32_t ism330dhcx_mag_z_orient_get(const stmdev_ctx_t *ctx,
 
   switch (mag_cfg_a.mag_z_axis)
   {
-    case ISM330DHCX_Z_EQ_Y:
+    case 0x00:
       *val = ISM330DHCX_Z_EQ_Y;
       break;
 
-    case ISM330DHCX_Z_EQ_MIN_Y:
+    case 0x01:
       *val = ISM330DHCX_Z_EQ_MIN_Y;
       break;
 
-    case ISM330DHCX_Z_EQ_X:
+    case 0x02:
       *val = ISM330DHCX_Z_EQ_X;
       break;
 
-    case ISM330DHCX_Z_EQ_MIN_X:
+    case 0x03:
       *val = ISM330DHCX_Z_EQ_MIN_X;
       break;
 
-    case ISM330DHCX_Z_EQ_MIN_Z:
+    case 0x04:
       *val = ISM330DHCX_Z_EQ_MIN_Z;
       break;
 
-    case ISM330DHCX_Z_EQ_Z:
+    case 0x05:
       *val = ISM330DHCX_Z_EQ_Z;
       break;
 
@@ -9939,27 +9939,27 @@ int32_t ism330dhcx_mag_y_orient_get(const stmdev_ctx_t *ctx,
 
   switch (mag_cfg_a.mag_y_axis)
   {
-    case ISM330DHCX_Y_EQ_Y:
+    case 0x00:
       *val = ISM330DHCX_Y_EQ_Y;
       break;
 
-    case ISM330DHCX_Y_EQ_MIN_Y:
+    case 0x01:
       *val = ISM330DHCX_Y_EQ_MIN_Y;
       break;
 
-    case ISM330DHCX_Y_EQ_X:
+    case 0x02:
       *val = ISM330DHCX_Y_EQ_X;
       break;
 
-    case ISM330DHCX_Y_EQ_MIN_X:
+    case 0x03:
       *val = ISM330DHCX_Y_EQ_MIN_X;
       break;
 
-    case ISM330DHCX_Y_EQ_MIN_Z:
+    case 0x04:
       *val = ISM330DHCX_Y_EQ_MIN_Z;
       break;
 
-    case ISM330DHCX_Y_EQ_Z:
+    case 0x05:
       *val = ISM330DHCX_Y_EQ_Z;
       break;
 
@@ -10023,27 +10023,27 @@ int32_t ism330dhcx_mag_x_orient_get(const stmdev_ctx_t *ctx,
 
   switch (mag_cfg_b.mag_x_axis)
   {
-    case ISM330DHCX_X_EQ_Y:
+    case 0x00:
       *val = ISM330DHCX_X_EQ_Y;
       break;
 
-    case ISM330DHCX_X_EQ_MIN_Y:
+    case 0x01:
       *val = ISM330DHCX_X_EQ_MIN_Y;
       break;
 
-    case ISM330DHCX_X_EQ_X:
+    case 0x02:
       *val = ISM330DHCX_X_EQ_X;
       break;
 
-    case ISM330DHCX_X_EQ_MIN_X:
+    case 0x03:
       *val = ISM330DHCX_X_EQ_MIN_X;
       break;
 
-    case ISM330DHCX_X_EQ_MIN_Z:
+    case 0x04:
       *val = ISM330DHCX_X_EQ_MIN_Z;
       break;
 
-    case ISM330DHCX_X_EQ_Z:
+    case 0x05:
       *val = ISM330DHCX_X_EQ_Z;
       break;
 
@@ -10394,15 +10394,15 @@ int32_t ism330dhcx_long_clr_get(const stmdev_ctx_t *ctx,
 
   switch (fsm_long_counter_clear.fsm_lc_clr)
   {
-    case ISM330DHCX_LC_NORMAL:
+    case 0x00:
       *val = ISM330DHCX_LC_NORMAL;
       break;
 
-    case ISM330DHCX_LC_CLEAR:
+    case 0x01:
       *val = ISM330DHCX_LC_CLEAR;
       break;
 
-    case ISM330DHCX_LC_CLEAR_DONE:
+    case 0x02:
       *val = ISM330DHCX_LC_CLEAR_DONE;
       break;
 
@@ -10507,19 +10507,19 @@ int32_t ism330dhcx_fsm_data_rate_get(const stmdev_ctx_t *ctx,
 
   switch (emb_func_odr_cfg_b.fsm_odr)
   {
-    case ISM330DHCX_ODR_FSM_12Hz5:
+    case 0x00:
       *val = ISM330DHCX_ODR_FSM_12Hz5;
       break;
 
-    case ISM330DHCX_ODR_FSM_26Hz:
+    case 0x01:
       *val = ISM330DHCX_ODR_FSM_26Hz;
       break;
 
-    case ISM330DHCX_ODR_FSM_52Hz:
+    case 0x02:
       *val = ISM330DHCX_ODR_FSM_52Hz;
       break;
 
-    case ISM330DHCX_ODR_FSM_104Hz:
+    case 0x03:
       *val = ISM330DHCX_ODR_FSM_104Hz;
       break;
 
@@ -10922,19 +10922,19 @@ int32_t ism330dhcx_mlc_data_rate_get(const stmdev_ctx_t *ctx,
   {
     switch (reg.mlc_odr)
     {
-      case ISM330DHCX_ODR_PRGS_12Hz5:
+      case 0x00:
         *val = ISM330DHCX_ODR_PRGS_12Hz5;
         break;
 
-      case ISM330DHCX_ODR_PRGS_26Hz:
+      case 0x01:
         *val = ISM330DHCX_ODR_PRGS_26Hz;
         break;
 
-      case ISM330DHCX_ODR_PRGS_52Hz:
+      case 0x02:
         *val = ISM330DHCX_ODR_PRGS_52Hz;
         break;
 
-      case ISM330DHCX_ODR_PRGS_104Hz:
+      case 0x03:
         *val = ISM330DHCX_ODR_PRGS_104Hz;
         break;
 
@@ -11136,19 +11136,19 @@ int32_t ism330dhcx_sh_slave_connected_get(const stmdev_ctx_t *ctx,
 
   switch (master_config.aux_sens_on)
   {
-    case ISM330DHCX_SLV_0:
+    case 0x00:
       *val = ISM330DHCX_SLV_0;
       break;
 
-    case ISM330DHCX_SLV_0_1:
+    case 0x01:
       *val = ISM330DHCX_SLV_0_1;
       break;
 
-    case ISM330DHCX_SLV_0_1_2:
+    case 0x02:
       *val = ISM330DHCX_SLV_0_1_2;
       break;
 
-    case ISM330DHCX_SLV_0_1_2_3:
+    case 0x03:
       *val = ISM330DHCX_SLV_0_1_2_3;
       break;
 
@@ -11435,11 +11435,11 @@ int32_t ism330dhcx_sh_syncro_mode_get(const stmdev_ctx_t *ctx,
 
   switch (master_config.start_config)
   {
-    case ISM330DHCX_EXT_ON_INT2_PIN:
+    case 0x01:
       *val = ISM330DHCX_EXT_ON_INT2_PIN;
       break;
 
-    case ISM330DHCX_XL_GY_DRDY:
+    case 0x00:
       *val = ISM330DHCX_XL_GY_DRDY;
       break;
 
@@ -11513,11 +11513,11 @@ int32_t ism330dhcx_sh_write_mode_get(const stmdev_ctx_t *ctx,
 
   switch (master_config.write_once)
   {
-    case ISM330DHCX_EACH_SH_CYCLE:
+    case 0x00:
       *val = ISM330DHCX_EACH_SH_CYCLE;
       break;
 
-    case ISM330DHCX_ONLY_FIRST_CYCLE:
+    case 0x01:
       *val = ISM330DHCX_ONLY_FIRST_CYCLE;
       break;
 
