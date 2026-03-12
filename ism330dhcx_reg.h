@@ -1928,7 +1928,7 @@ uint64_t ism330dhcx_from_lsb_to_nsec(uint32_t lsb);
 typedef enum
 {
   ISM330DHCX_2g   = 0,
-  ISM330DHCX_16g  = 1, /* if XL_FS_MODE = '1' -> ISM330DHCX_2g */
+  ISM330DHCX_16g  = 1,
   ISM330DHCX_4g   = 2,
   ISM330DHCX_8g   = 3,
 } ism330dhcx_fs_xl_t;
