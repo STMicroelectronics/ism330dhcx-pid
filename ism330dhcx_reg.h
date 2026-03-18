@@ -2124,8 +2124,6 @@ int32_t ism330dhcx_ln_pg_write(const stmdev_ctx_t *ctx, uint16_t address,
                                uint8_t *buf, uint8_t len);
 int32_t ism330dhcx_ln_pg_read_byte(const stmdev_ctx_t *ctx, uint16_t add,
                                    uint8_t *val);
-int32_t ism330dhcx_ln_pg_read(const stmdev_ctx_t *ctx, uint16_t address,
-                              uint8_t *val);
 
 typedef enum
 {
