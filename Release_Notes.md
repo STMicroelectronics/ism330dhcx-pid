@@ -30,7 +30,22 @@ This directory contains the ISM330DHCX component drivers.
 # Update history
 
 ::: {.collapse}
-<input type="checkbox" id="collapse-section13" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section14" checked aria-hidden="true">
+<label for="collapse-section14" aria-hidden="true">V4.1.0 / 21-Apr-2026</label>
+<div>
+
+## Main changes
+
+- Add sign specification to bitmask
+- Fix MISRA issues
+- Fix MISRA issues, fix some hex values in switch statements
+- Add variable initialization in all APIs
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section13" aria-hidden="true">
 <label for="collapse-section13" aria-hidden="true">V4.0.0 / 18-Mar-2026</label>
 <div>
 
