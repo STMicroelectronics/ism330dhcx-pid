@@ -259,9 +259,9 @@ int32_t ism330dhcx_xl_data_rate_set(const stmdev_ctx_t *ctx,
 {
   ism330dhcx_odr_xl_t odr_xl =  val;
   ism330dhcx_emb_fsm_enable_t fsm_enable = {0};
-  ism330dhcx_fsm_odr_t fsm_odr = {0};
+  ism330dhcx_fsm_odr_t fsm_odr = ISM330DHCX_ODR_FSM_12Hz5;
   uint8_t mlc_enable = 0;
-  ism330dhcx_mlc_odr_t mlc_odr = {0};
+  ism330dhcx_mlc_odr_t mlc_odr = ISM330DHCX_ODR_PRGS_12Hz5;
   ism330dhcx_ctrl1_xl_t ctrl1_xl = {0};
   int32_t ret = 0;
 
@@ -650,9 +650,9 @@ int32_t ism330dhcx_gy_data_rate_set(const stmdev_ctx_t *ctx,
 {
   ism330dhcx_odr_g_t odr_gy =  val;
   ism330dhcx_emb_fsm_enable_t fsm_enable = {0};
-  ism330dhcx_fsm_odr_t fsm_odr = {0};
+  ism330dhcx_fsm_odr_t fsm_odr = ISM330DHCX_ODR_FSM_12Hz5;
   uint8_t mlc_enable = {0};
-  ism330dhcx_mlc_odr_t mlc_odr = {0};
+  ism330dhcx_mlc_odr_t mlc_odr = ISM330DHCX_ODR_PRGS_12Hz5;
   ism330dhcx_ctrl2_g_t ctrl2_g = {0};
   int32_t ret = 0;
 
