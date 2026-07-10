@@ -30,7 +30,19 @@ This directory contains the ISM330DHCX component drivers.
 # Update history
 
 ::: {.collapse}
-<input type="checkbox" id="collapse-section14" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section15" checked aria-hidden="true">
+<label for="collapse-section15" aria-hidden="true">V4.1.1 / 10-Jul-2026</label>
+<div>
+
+## Main changes
+
+- Fix build in xl/gy data_rate_set API
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section14" aria-hidden="true">
 <label for="collapse-section14" aria-hidden="true">V4.1.0 / 21-Apr-2026</label>
 <div>
 
